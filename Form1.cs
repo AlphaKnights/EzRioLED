@@ -28,6 +28,8 @@ namespace EzRioLED
         static int commState;
         static int rslState;
 
+        static bool creditsShown = false;
+
         string[] responseBox = new string[] { " ", " ", " ", " ", " ", " " };
 
         //not sure where this is gonna go yet but ok
@@ -62,7 +64,6 @@ namespace EzRioLED
             Comm.Enabled = true;
             Mode.Enabled = true;
             RSL.Enabled = true;
-
 
         }
         public void PowerLEDColorPicker_EnabledChanged(object sender, EventArgs e)
@@ -107,6 +108,18 @@ namespace EzRioLED
                     responseBox[1] = "Invalid Input";
                     break;
                 case -1:
+                    responseBox[1] = "Normal Operation";
+                    break;
+                case 0:
+                    responseBox[1] = "Normal Operation";
+                    break;
+                case 1:
+                    responseBox[1] = "Normal Operation";
+                    break;
+                case 2:
+                    responseBox[1] = "Normal Operation";
+                    break;
+                case 3:
                     responseBox[1] = "Normal Operation";
                     break;
                 case 10:
@@ -484,6 +497,28 @@ namespace EzRioLED
                     break;
             }
             if (rslState != 11 && rslState != 12) { RSLLed.BackColor = Color.White; }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (creditsShown == false)
+            {               
+                button2.BringToFront();
+                Creditsbox.Visible = true;
+                button2.Visible = true;
+                listBox1.Visible = true;
+                listBox2.Visible = true;
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Creditsbox.Visible = false;
+            button2.Visible = false;
+            creditsShown = false;
+            listBox1.Visible = false;
+            listBox2.Visible = false;
         }
     }
 }

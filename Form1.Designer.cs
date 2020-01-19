@@ -70,6 +70,10 @@
             this.RadioLED = new System.Windows.Forms.PictureBox();
             this.StatusLED = new System.Windows.Forms.PictureBox();
             this.PowerLED = new System.Windows.Forms.PictureBox();
+            this.Creditsbox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.PowerLEDBox.SuspendLayout();
             this.StatusLEDBox.SuspendLayout();
             this.RadioLEDBox.SuspendLayout();
@@ -478,6 +482,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(164, 295);
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // ModeLED
             // 
@@ -527,11 +532,55 @@
             this.PowerLED.TabIndex = 17;
             this.PowerLED.TabStop = false;
             // 
+            // Creditsbox
+            // 
+            this.Creditsbox.Location = new System.Drawing.Point(5, 2);
+            this.Creditsbox.Multiline = true;
+            this.Creditsbox.Name = "Creditsbox";
+            this.Creditsbox.ReadOnly = true;
+            this.Creditsbox.Size = new System.Drawing.Size(622, 252);
+            this.Creditsbox.TabIndex = 18;
+            this.Creditsbox.Text = resources.GetString("Creditsbox.Text");
+            this.Creditsbox.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(249, 260);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Click to Close";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(369, 247);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(258, 43);
+            this.listBox1.TabIndex = 20;
+            this.listBox1.Visible = false;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(5, 247);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(238, 43);
+            this.listBox2.TabIndex = 21;
+            this.listBox2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 293);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Creditsbox);
             this.Controls.Add(this.PowerLED);
             this.Controls.Add(this.StatusLED);
             this.Controls.Add(this.RadioLED);
@@ -546,9 +595,10 @@
             this.Controls.Add(this.RadioLEDBox);
             this.Controls.Add(this.StatusLEDBox);
             this.Controls.Add(this.PowerLEDBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Form1";
-            this.Text = "EzRioLED";
+            this.Text = "RioLEDebug";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PowerLEDBox.ResumeLayout(false);
             this.StatusLEDBox.ResumeLayout(false);
@@ -564,6 +614,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.StatusLED)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerLED)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -609,5 +660,9 @@
         private System.Windows.Forms.PictureBox RadioLED;
         private System.Windows.Forms.PictureBox StatusLED;
         private System.Windows.Forms.PictureBox PowerLED;
+        private System.Windows.Forms.TextBox Creditsbox;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
