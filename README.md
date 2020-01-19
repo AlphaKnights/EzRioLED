@@ -1,5 +1,7 @@
 # RioLEDbug
 
+![Simple Demo](https://raw.githubusercontent.com/AlphaKnights/RioLEDbug/master/Media/Simple_Demo.gif "Logo Title Text 1")
+
 Have you ever looked at a RoboRIO's status lights and wondered _"Self, what is the little computer thing trying to tell me?"_ Yes? Of course you have! 
 Well, this tool will tell you just that! Just download and run the latest release from [here](https://github.com/AlphaKnights/RioLEDbug/releases), enter the state of the LEDs, and instantly see what it means!
 
@@ -10,6 +12,9 @@ To quickly check if everything matches, look at the graphic on the right, which 
 See the big box on the bottom of the app? Read that for our professional diagnosis of yor RIO's current condition. 
 
 Happy roboting!
+
+![Adv. Demo](https://raw.githubusercontent.com/AlphaKnights/RioLEDbug/master/Media/Live_Demo.gif "Logo Title Text 1")
+
 
 ## Contributing
 
