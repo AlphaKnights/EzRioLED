@@ -10,6 +10,7 @@ Well, this tool will tell you just that! Just download and run the latest releas
 This is really simple, even a new engineering student could use it. Simply download the latest release, run the exe, and select the state that's being shown on the RIO. 
 To quickly check if everything matches, look at the graphic on the right, which should match the RIO's LEDs if you chose correctly.
 See the big box on the bottom of the app? Read that for our professional diagnosis of yor RIO's current condition. 
+If you want to 'install' RioLEDbug, make a folder in `Program Files` and place the exe in there.
 
 Happy roboting!
 
