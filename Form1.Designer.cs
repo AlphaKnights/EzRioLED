@@ -63,7 +63,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.ResponseOutputBox = new System.Windows.Forms.ListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.roborioImage = new System.Windows.Forms.PictureBox();
             this.ModeLED = new System.Windows.Forms.PictureBox();
             this.RSLLed = new System.Windows.Forms.PictureBox();
             this.CommLED = new System.Windows.Forms.PictureBox();
@@ -71,16 +71,16 @@
             this.StatusLED = new System.Windows.Forms.PictureBox();
             this.PowerLED = new System.Windows.Forms.PictureBox();
             this.Creditsbox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.closeCreditsButton = new System.Windows.Forms.Button();
+            this.rightSideBox = new System.Windows.Forms.ListBox();
+            this.leftSideBox = new System.Windows.Forms.ListBox();
             this.PowerLEDBox.SuspendLayout();
             this.StatusLEDBox.SuspendLayout();
             this.RadioLEDBox.SuspendLayout();
             this.CommLEDBox.SuspendLayout();
             this.RSLLEDBox.SuspendLayout();
             this.ModeLEDBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roborioImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModeLED)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RSLLed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CommLED)).BeginInit();
@@ -472,17 +472,17 @@
             this.ResponseOutputBox.Size = new System.Drawing.Size(454, 82);
             this.ResponseOutputBox.TabIndex = 9;
             // 
-            // pictureBox2
+            // roborioImage
             // 
-            this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(463, -5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(164, 295);
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.roborioImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("roborioImage.ErrorImage")));
+            this.roborioImage.Image = ((System.Drawing.Image)(resources.GetObject("roborioImage.Image")));
+            this.roborioImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("roborioImage.InitialImage")));
+            this.roborioImage.Location = new System.Drawing.Point(463, -5);
+            this.roborioImage.Name = "roborioImage";
+            this.roborioImage.Size = new System.Drawing.Size(164, 295);
+            this.roborioImage.TabIndex = 11;
+            this.roborioImage.TabStop = false;
+            this.roborioImage.Click += new System.EventHandler(this.roborioImage_Click);
             // 
             // ModeLED
             // 
@@ -534,7 +534,7 @@
             // 
             // Creditsbox
             // 
-            this.Creditsbox.Location = new System.Drawing.Point(5, 2);
+            this.Creditsbox.Location = new System.Drawing.Point(463, 184);
             this.Creditsbox.Multiline = true;
             this.Creditsbox.Name = "Creditsbox";
             this.Creditsbox.ReadOnly = true;
@@ -543,43 +543,43 @@
             this.Creditsbox.Text = resources.GetString("Creditsbox.Text");
             this.Creditsbox.Visible = false;
             // 
-            // button2
+            // closeCreditsButton
             // 
-            this.button2.Location = new System.Drawing.Point(249, 260);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Click to Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.closeCreditsButton.Location = new System.Drawing.Point(249, 260);
+            this.closeCreditsButton.Name = "closeCreditsButton";
+            this.closeCreditsButton.Size = new System.Drawing.Size(114, 23);
+            this.closeCreditsButton.TabIndex = 19;
+            this.closeCreditsButton.Text = "Click to Close";
+            this.closeCreditsButton.UseVisualStyleBackColor = true;
+            this.closeCreditsButton.Visible = false;
+            this.closeCreditsButton.Click += new System.EventHandler(this.closeCreditsButton_Click);
             // 
-            // listBox1
+            // rightSideBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(369, 247);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(258, 43);
-            this.listBox1.TabIndex = 20;
-            this.listBox1.Visible = false;
+            this.rightSideBox.FormattingEnabled = true;
+            this.rightSideBox.Location = new System.Drawing.Point(369, 247);
+            this.rightSideBox.Name = "rightSideBox";
+            this.rightSideBox.Size = new System.Drawing.Size(258, 43);
+            this.rightSideBox.TabIndex = 20;
+            this.rightSideBox.Visible = false;
             // 
-            // listBox2
+            // leftSideBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(5, 247);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(238, 43);
-            this.listBox2.TabIndex = 21;
-            this.listBox2.Visible = false;
+            this.leftSideBox.FormattingEnabled = true;
+            this.leftSideBox.Location = new System.Drawing.Point(5, 247);
+            this.leftSideBox.Name = "leftSideBox";
+            this.leftSideBox.Size = new System.Drawing.Size(238, 43);
+            this.leftSideBox.TabIndex = 21;
+            this.leftSideBox.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 293);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.leftSideBox);
+            this.Controls.Add(this.rightSideBox);
+            this.Controls.Add(this.closeCreditsButton);
             this.Controls.Add(this.Creditsbox);
             this.Controls.Add(this.PowerLED);
             this.Controls.Add(this.StatusLED);
@@ -587,7 +587,7 @@
             this.Controls.Add(this.CommLED);
             this.Controls.Add(this.RSLLed);
             this.Controls.Add(this.ModeLED);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.roborioImage);
             this.Controls.Add(this.ResponseOutputBox);
             this.Controls.Add(this.RSLLEDBox);
             this.Controls.Add(this.CommLEDBox);
@@ -606,7 +606,7 @@
             this.CommLEDBox.ResumeLayout(false);
             this.RSLLEDBox.ResumeLayout(false);
             this.ModeLEDBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roborioImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModeLED)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RSLLed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CommLED)).EndInit();
@@ -653,7 +653,7 @@
         private System.Windows.Forms.ListBox RadioLEDPatternPicker;
         private System.Windows.Forms.ListBox PowerLEDColorPicker;
         private System.Windows.Forms.ListBox CommLEDPatternPicker;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox roborioImage;
         private System.Windows.Forms.PictureBox ModeLED;
         private System.Windows.Forms.PictureBox RSLLed;
         private System.Windows.Forms.PictureBox CommLED;
@@ -661,8 +661,8 @@
         private System.Windows.Forms.PictureBox StatusLED;
         private System.Windows.Forms.PictureBox PowerLED;
         private System.Windows.Forms.TextBox Creditsbox;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button closeCreditsButton;
+        private System.Windows.Forms.ListBox rightSideBox;
+        private System.Windows.Forms.ListBox leftSideBox;
     }
 }

@@ -499,26 +499,27 @@ namespace EzRioLED
             if (rslState != 11 && rslState != 12) { RSLLed.BackColor = Color.White; }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void roborioImage_Click(object sender, EventArgs e)
         {
             if (creditsShown == false)
-            {               
-                button2.BringToFront();
+            {
+                Creditsbox.Location = new Point(0, 0);
+                closeCreditsButton.BringToFront();
                 Creditsbox.Visible = true;
-                button2.Visible = true;
-                listBox1.Visible = true;
-                listBox2.Visible = true;
+                closeCreditsButton.Visible = true;
+                rightSideBox.Visible = true;
+                leftSideBox.Visible = true;
             }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void closeCreditsButton_Click(object sender, EventArgs e)
         {
             Creditsbox.Visible = false;
-            button2.Visible = false;
+            closeCreditsButton.Visible = false;
             creditsShown = false;
-            listBox1.Visible = false;
-            listBox2.Visible = false;
+            rightSideBox.Visible = false;
+            leftSideBox.Visible = false;
         }
     }
 }

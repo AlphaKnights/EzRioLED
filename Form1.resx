@@ -124,7 +124,7 @@
     <value>250, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox2.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="roborioImage.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJwAAAEsCAYAAAA2BdqMAAAABGdBTUEAALGPC/xhBQAAVRhJREFUeF7t
         vXVYHMn6/v3+8fue3bPuvhtgXBncXUKQAAGSQCCeEOIh7u662Xg27u7u7u4bT4i7E+N+66kZYICBQJKd
@@ -493,7 +493,7 @@
         peILqFIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="roborioImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJwAAAEsCAYAAAA2BdqMAAAABGdBTUEAALGPC/xhBQAAVRhJREFUeF7t
         vXVYHMn6/v3+8fue3bPuvhtgXBncXUKQAAGSQCCeEOIh7u662Xg27u7u7u4bT4i7E+N+66kZYICBQJKd
@@ -862,7 +862,7 @@
         peILqFIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox2.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="roborioImage.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJwAAAEsCAYAAAA2BdqMAAAABGdBTUEAALGPC/xhBQAAVRhJREFUeF7t
         vXVYHMn6/v3+8fue3bPuvhtgXBncXUKQAAGSQCCeEOIh7u662Xg27u7u7u4bT4i7E+N+66kZYICBQJKd
