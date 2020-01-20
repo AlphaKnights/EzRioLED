@@ -6,520 +6,701 @@ namespace EzRioLED
 {
     public partial class Form1 : Form
     {
-        Timer loop = new Timer();
-        Timer Power = new Timer();
-        Timer Status = new Timer();
-        Timer Radio = new Timer();
-        Timer Comm = new Timer();
-        Timer Mode = new Timer();
-        Timer RSL = new Timer();
+        #region Roborio Variables and Timers
+        Timer roboloop = new Timer();
+        Timer roboPower = new Timer();
+        Timer roboStatus = new Timer();
+        Timer roboRadio = new Timer();
+        Timer roboComm = new Timer();
+        Timer roboMode = new Timer();
+        Timer roboRSL = new Timer();
 
-        static bool powerEnabled = false;
-        static bool statusEnabled = false;
-        static int statusBlinkState = 0;
-        static bool radioEnabled = false;
-        static bool commEnabled = false;
-        static bool rslEnabled = false;
+        static bool robopowerEnabled = false;
+        static bool robostatusEnabled = false;
+        static int robostatusBlinkState = 0;
+        static bool roboradioEnabled = false;
+        static bool robocommEnabled = false;
+        static bool roborslEnabled = false;
 
-        static int powerState;
-        static int statusState;
-        static int radioState;
-        static int modeState;
-        static int commState;
-        static int rslState;
+        static int robopowerState;
+        static int robostatusState;
+        static int roboradioState;
+        static int robomodeState;
+        static int robocommState;
+        static int roborslState;
 
-        static bool creditsShown = false;
+        string[] roboresponseBox = new string[] { " ", " ", " ", " ", " ", " " };
+        #endregion
+        #region Talon Variables and Timers
+        Timer talonled = new Timer();
+        Timer talonbox = new Timer();
 
-        string[] responseBox = new string[] { " ", " ", " ", " ", " ", " " };
+        static int talonState;
+        #endregion
 
-        //not sure where this is gonna go yet but ok
+        #region Form1 Init
         public Form1()
         {
             InitializeComponent();
         }
+        #endregion
+
         private void Form1_Load(object sender, EventArgs e)
-        {          
-            PowerLEDColorPicker.EnabledChanged += PowerLEDColorPicker_EnabledChanged;
-
-            loop.Interval = 50;
-            Power.Interval = 400;
-            Status.Interval = 400;
-            Radio.Interval = 400;
-            Comm.Interval = 400;
-            Mode.Interval = 50;
-            RSL.Interval = 400;
-
-            loop.Tick += new EventHandler(Loop);
-            Power.Tick += new EventHandler(powerUpdate);
-            Status.Tick += new EventHandler(statusUpdate);
-            Radio.Tick += new EventHandler(radioUpdate);
-            Comm.Tick += new EventHandler(commUpdate);
-            Mode.Tick += new EventHandler(modeUpdate);
-            RSL.Tick += new EventHandler(rslUpdate);
-
-            loop.Enabled = true;
-            Power.Enabled = true;
-            Status.Enabled = true;
-            Radio.Enabled = true;
-            Comm.Enabled = true;
-            Mode.Enabled = true;
-            RSL.Enabled = true;
-
-        }
-        public void PowerLEDColorPicker_EnabledChanged(object sender, EventArgs e)
         {
-            string curItem = PowerLEDColorPicker.SelectedItem.ToString();
-            
-            
+            #region Roborio Init
+            roboloop.Interval = 50;
+            roboPower.Interval = 400;
+            roboStatus.Interval = 400;
+            roboRadio.Interval = 400;
+            roboComm.Interval = 400;
+            roboMode.Interval = 50;
+            roboRSL.Interval = 400;
 
+            roboloop.Tick += new EventHandler(roboLoop);
+            roboPower.Tick += new EventHandler(robopowerUpdate);
+            roboStatus.Tick += new EventHandler(robostatusUpdate);
+            roboRadio.Tick += new EventHandler(roboradioUpdate);
+            roboComm.Tick += new EventHandler(robocommUpdate);
+            roboMode.Tick += new EventHandler(robomodeUpdate);
+            roboRSL.Tick += new EventHandler(roborslUpdate);
+
+            roboloop.Enabled = true;
+            roboPower.Enabled = true;
+            roboStatus.Enabled = true;
+            roboRadio.Enabled = true;
+            roboComm.Enabled = true;
+            roboMode.Enabled = true;
+            roboRSL.Enabled = true;
+            #endregion
+            #region Talon Init
+            talonled.Interval = 400;
+            talonbox.Interval = 50;
+
+            talonled.Tick += new EventHandler(talonLED);
+            talonbox.Tick += new EventHandler(talonUpdate);
+
+            talonled.Enabled = true;
+            talonbox.Enabled = true;
+
+            #endregion
         }
-        private class ComboItem
+
+        #region Roborio Logic
+        private void roboLoop(object myObject, EventArgs myEventArgs)
         {
-            public int ID { get; set; }
-            public string Text { get; set; }
-        }
-
-        private void Loop(object myObject, EventArgs myEventArgs) 
-        {            
-            switch (powerState)
+            switch (robopowerState)
             {
                 default:
-                    responseBox[0] = "Invalid Input";
+                    roboresponseBox[0] = "Invalid Input";
                     break;
                 case 0:
-                    responseBox[0] = "Power is outside valid input range.";
+                    roboresponseBox[0] = "Power is outside valid input range.";
                     break;
                 case 11:
-                    responseBox[0] = "Power is valid with no fault condition.";
+                    roboresponseBox[0] = "Power is valid with no fault condition.";
                     break;
                 case 21:
-                    responseBox[0] = "One or more user voltage rails are in short-circuit or overcurrent condition.";
+                    roboresponseBox[0] = "One or more user voltage rails are in short-circuit or overcurrent condition.";
                     break;
                 case 22:
-                    responseBox[0] = "Input voltage is too high (greater than 16V), and all outputs, including RSL, are disabled.";
+                    roboresponseBox[0] = "Input voltage is too high (greater than 16V), and all outputs, including RSL, are disabled.";
                     break;
                 case 31:
-                    responseBox[0] = "Brownout condition detected. 6V user rail and outputs are disabled.";
+                    roboresponseBox[0] = "Brownout condition detected. 6V user rail and outputs are disabled.";
                     break;
             }
-            switch (statusState)
+            switch (robostatusState)
             {
                 default:
-                    responseBox[1] = "Invalid Input";
+                    roboresponseBox[1] = "Invalid Input";
                     break;
                 case -1:
-                    responseBox[1] = "Normal Operation";
+                    roboresponseBox[1] = "Normal Operation";
                     break;
                 case 0:
-                    responseBox[1] = "Normal Operation";
+                    roboresponseBox[1] = "Normal Operation";
                     break;
                 case 1:
-                    responseBox[1] = "Normal Operation";
+                    roboresponseBox[1] = "Normal Operation";
                     break;
                 case 2:
-                    responseBox[1] = "Normal Operation";
+                    roboresponseBox[1] = "Normal Operation";
                     break;
                 case 3:
-                    responseBox[1] = "Normal Operation";
+                    roboresponseBox[1] = "Normal Operation";
                     break;
                 case 10:
-                    responseBox[1] = "Error detected with software. Reinstall software on this device.";
+                    roboresponseBox[1] = "Error detected with software. Reinstall software on this device.";
                     break;
                 case 11:
-                    responseBox[1] = "Device is in safe mode.";
+                    roboresponseBox[1] = "Device is in safe mode.";
                     break;
                 case 12:
-                    responseBox[1] = "Software has crashed twice without reboot or power cycle. Check memory usage in VI.";
+                    roboresponseBox[1] = "Software has crashed twice without reboot or power cycle. Check memory usage in VI.";
                     break;
                 case 13:
-                    responseBox[1] = "This device has detected an unrecoverable error. Contact National Instruments.";
+                    roboresponseBox[1] = "This device has detected an unrecoverable error. Contact National Instruments.";
                     break;
             }
-            switch (radioState)
+            switch (roboradioState)
             {
                 default:
-                    responseBox[2] = "Invalid Input";
+                    roboresponseBox[2] = "Invalid Input";
                     break;
                 case 0:
-                    responseBox[2] = "No connection detected";
+                    roboresponseBox[2] = "No connection detected";
                     break;
                 case 11:
-                    responseBox[2] = "Radio is enabled and bridge configured with SSID.";
+                    roboresponseBox[2] = "Radio is enabled and bridge configured with SSID.";
                     break;
                 case 12:
-                    responseBox[2] = "Radio is enabled and bridging is in progress.";
+                    roboresponseBox[2] = "Radio is enabled and bridging is in progress.";
                     break;
                 case 21:
-                    responseBox[2] = "Reserved";
+                    roboresponseBox[2] = "Reserved";
                     break;
                 case 22:
-                    responseBox[2] = "Reserved";
+                    roboresponseBox[2] = "Reserved";
                     break;
                 case 32:
-                    responseBox[2] = "Radio is enabled and access point is being constructed.";
+                    roboresponseBox[2] = "Radio is enabled and access point is being constructed.";
                     break;
                 case 31:
-                    responseBox[2] = "Radio is enabled and in access point mode.";
+                    roboresponseBox[2] = "Radio is enabled and in access point mode.";
                     break;
             }
-            switch (commState)
+            switch (robocommState)
             {
                 default:
-                    responseBox[3] = "Invalid Input";
+                    roboresponseBox[3] = "Invalid Input";
                     break;
                 case 0:
-                    responseBox[3] = "No communication detected. No heartbeat detected.";
+                    roboresponseBox[3] = "No communication detected. No heartbeat detected.";
                     break;
                 case 11:
-                    responseBox[3] = "Active. Driver station is in convtrol of the robot.";
+                    roboresponseBox[3] = "Active. Driver station is in convtrol of the robot.";
                     break;
                 case 21:
-                    responseBox[3] = "No robot code.";
+                    roboresponseBox[3] = "No robot code.";
                     break;
                 case 22:
-                    responseBox[3] = "Driver station has E-Stopped the robot.";
+                    roboresponseBox[3] = "Driver station has E-Stopped the robot.";
                     break;
                 case 31:
-                    responseBox[3] = "Reserved.";
+                    roboresponseBox[3] = "Reserved.";
                     break;
                 case 32:
-                    responseBox[3] = "Reserved.";
+                    roboresponseBox[3] = "Reserved.";
                     break;
             }
-            switch (modeState)
+            switch (robomodeState)
             {
                 default:
-                    responseBox[4] = "Invalid Input";
+                    roboresponseBox[4] = "Invalid Input";
                     break;
                 case 0:
-                    responseBox[4] = "Outputs disabled.";
+                    roboresponseBox[4] = "Outputs disabled.";
                     break;
                 case 11:
-                    responseBox[4] = "Outputs enabled. Autonomous mode.";
+                    roboresponseBox[4] = "Outputs enabled. Autonomous mode.";
                     break;
                 case 31:
-                    responseBox[4] = "Outputs enabled. TeleOperated mode.";
+                    roboresponseBox[4] = "Outputs enabled. TeleOperated mode.";
                     break;
                 case 21:
-                    responseBox[4] = "Outputs unknown, undetermined, or in test mode.";
+                    roboresponseBox[4] = "Outputs unknown, undetermined, or in test mode.";
                     break;
             }
-            switch (rslState)
+            switch (roborslState)
             {
                 default:
-                    responseBox[5] = "Invalid Input";
+                    roboresponseBox[5] = "Invalid Input";
                     break;
                 case 0:
-                    responseBox[5] = "Outputs disabled. No power";
+                    roboresponseBox[5] = "Outputs disabled. No power";
                     break;
                 case 11:
-                    responseBox[5] = "Outputs disabled. Robot is powered.";
+                    roboresponseBox[5] = "Outputs disabled. Robot is powered.";
                     break;
                 case 12:
-                    responseBox[5] = "Outputs enabled. Robot is powered.";
+                    roboresponseBox[5] = "Outputs enabled. Robot is powered.";
                     break;
             }
-            ResponseOutputBox.Items.Clear();
+            roboResponseOutputBox.Items.Clear();
             for (int i = 0; i < 6; i++)
             {
-                ResponseOutputBox.Items.Add(responseBox[i]);
+                roboResponseOutputBox.Items.Add(roboresponseBox[i]);
             }
         }
-
-        private void powerUpdate(object myObject, EventArgs myEventArgs)
+        private void robopowerUpdate(object myObject, EventArgs myEventArgs)
         {
-            powerState = PowerLEDColorPicker.SelectedIndex * 10 + PowerLEDPatternPicker.SelectedIndex;
-            switch (powerState)
+            robopowerState = roboPowerLEDColorPicker.SelectedIndex * 10 + roboPowerLEDPatternPicker.SelectedIndex;
+            switch (robopowerState)
             {
                 case 11:
-                    PowerLED.BackColor = Color.Green;
+                    roboPowerLED.BackColor = Color.Green;
                     break;
                 case 12:
-                    if (powerEnabled == true) { PowerLED.BackColor = Color.White; powerEnabled = false; } else { PowerLED.BackColor = Color.Green; powerEnabled = true; }
+                    if (robopowerEnabled == true) { roboPowerLED.BackColor = Color.White; robopowerEnabled = false; } else { roboPowerLED.BackColor = Color.Green; robopowerEnabled = true; }
                     break;
                 case 21:
-                    PowerLED.BackColor = Color.Red;
+                    roboPowerLED.BackColor = Color.Red;
                     break;
                 case 22:
-                    if (powerEnabled == true) { PowerLED.BackColor = Color.White; powerEnabled = false; } else { PowerLED.BackColor = Color.Red; powerEnabled = true; }
+                    if (robopowerEnabled == true) { roboPowerLED.BackColor = Color.White; robopowerEnabled = false; } else { roboPowerLED.BackColor = Color.Red; robopowerEnabled = true; }
                     break;
                 case 31:
-                    PowerLED.BackColor = Color.Yellow;
+                    roboPowerLED.BackColor = Color.Yellow;
                     break;
                 case 32:
-                    if (powerEnabled == true) { PowerLED.BackColor = Color.White; powerEnabled = false; } else { PowerLED.BackColor = Color.Yellow; powerEnabled = true; }
+                    if (robopowerEnabled == true) { roboPowerLED.BackColor = Color.White; robopowerEnabled = false; } else { roboPowerLED.BackColor = Color.Yellow; robopowerEnabled = true; }
+                    break;
+                default:
+                    roboPowerLED.BackColor = Color.White;
                     break;
             }
-            if (powerState != 11 && powerState != 12 && powerState != 21 && powerState != 22 && powerState != 31 && powerState != 32) { PowerLED.BackColor = Color.White; }
         }
-
-        private void statusUpdate(object myObject, EventArgs myEventArgs) 
+        private void robostatusUpdate(object myObject, EventArgs myEventArgs)
         {
-            statusState = StatusLEDColorPicker.SelectedIndex * 10 + StatusLEDPatternPicker.SelectedIndex;
-            switch (statusState)
+            robostatusState = roboStatusLEDColorPicker.SelectedIndex * 10 + roboStatusLEDPatternPicker.SelectedIndex;
+            switch (robostatusState)
             {
                 case 10:
-                    switch (statusBlinkState)
+                    switch (robostatusBlinkState)
                     {
                         case 0:
-                            Status.Interval = 150;
-                            if (statusEnabled == false) 
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                statusBlinkState++;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                robostatusBlinkState++;
                             }
                             break;
 
                         case 1:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                Status.Interval = 1500;
-                                statusBlinkState = 0;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                roboStatus.Interval = 1500;
+                                robostatusBlinkState = 0;
                             }
                             break;
                     }
                     break;
                 case 11:
-                    switch (statusBlinkState)
+                    switch (robostatusBlinkState)
                     {
                         case 0:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                statusBlinkState++;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                robostatusBlinkState++;
                             }
                             break;
                         case 1:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                statusBlinkState++;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                robostatusBlinkState++;
                             }
                             break;
 
                         case 2:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                Status.Interval = 1500;
-                                statusBlinkState = 0;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                roboStatus.Interval = 1500;
+                                robostatusBlinkState = 0;
                             }
                             break;
                     }
                     break;
                 case 12:
-                    switch (statusBlinkState)
+                    switch (robostatusBlinkState)
                     {
                         case 0:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                statusBlinkState++;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                robostatusBlinkState++;
                             }
                             break;
                         case 1:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                statusBlinkState++;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                robostatusBlinkState++;
                             }
                             break;
                         case 2:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                statusBlinkState++;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                robostatusBlinkState++;
                             }
                             break;
 
                         case 3:
-                            Status.Interval = 150;
-                            if (statusEnabled == false)
+                            roboStatus.Interval = 150;
+                            if (robostatusEnabled == false)
                             {
-                                StatusLED.BackColor = Color.Yellow;
-                                statusEnabled = true;
+                                roboStatusLED.BackColor = Color.Yellow;
+                                robostatusEnabled = true;
                             }
                             else
                             {
-                                StatusLED.BackColor = Color.White;
-                                statusEnabled = false;
-                                Status.Interval = 1500;
-                                statusBlinkState = 0;
+                                roboStatusLED.BackColor = Color.White;
+                                robostatusEnabled = false;
+                                roboStatus.Interval = 1500;
+                                robostatusBlinkState = 0;
                             }
                             break;
                     }
                     break;
                 case 13:
-                    Status.Interval = 150;
-                    if (statusEnabled == true) { StatusLED.BackColor = Color.White; statusEnabled = false; } else { StatusLED.BackColor = Color.Yellow; statusEnabled = true; }
+                    roboStatus.Interval = 150;
+                    if (robostatusEnabled == true) { roboStatusLED.BackColor = Color.White; robostatusEnabled = false; } else { roboStatusLED.BackColor = Color.Yellow; robostatusEnabled = true; }
+                    break;
+                default:
+                    roboStatusLED.BackColor = Color.White;
                     break;
             }
-            if (statusState != 10 && statusState != 11 && statusState != 12&& statusState != 13) { StatusLED.BackColor = Color.White; }
         }
-        
-        private void radioUpdate(object myObject, EventArgs myEventArgs) 
+        private void roboradioUpdate(object myObject, EventArgs myEventArgs)
         {
-            radioState = RadioLEDColorPicker.SelectedIndex * 10 + RadioLEDPatternPicker.SelectedIndex;
-            switch (radioState)
+            roboradioState = roboRadioLEDColorPicker.SelectedIndex * 10 + roboRadioLEDPatternPicker.SelectedIndex;
+            switch (roboradioState)
             {
                 case 11:
-                    RadioLED.BackColor = Color.Green;
+                    roboRadioLED.BackColor = Color.Green;
                     break;
                 case 12:
-                    if (radioEnabled == true) { RadioLED.BackColor = Color.White; radioEnabled = false; } else { RadioLED.BackColor = Color.Green; radioEnabled = true; }
+                    if (roboradioEnabled == true) { roboRadioLED.BackColor = Color.White; roboradioEnabled = false; } else { roboRadioLED.BackColor = Color.Green; roboradioEnabled = true; }
                     break;
                 case 21:
-                    RadioLED.BackColor = Color.Red;
+                    roboRadioLED.BackColor = Color.Red;
                     break;
                 case 22:
-                    if (radioEnabled == true) { RadioLED.BackColor = Color.White; radioEnabled = false; } else { RadioLED.BackColor = Color.Red; radioEnabled = true; }
+                    if (roboradioEnabled == true) { roboRadioLED.BackColor = Color.White; roboradioEnabled = false; } else { roboRadioLED.BackColor = Color.Red; roboradioEnabled = true; }
                     break;
                 case 31:
-                    RadioLED.BackColor = Color.Yellow;
+                    roboRadioLED.BackColor = Color.Yellow;
                     break;
                 case 32:
-                    if (radioEnabled == true) { RadioLED.BackColor = Color.White; radioEnabled = false; } else { RadioLED.BackColor = Color.Yellow; radioEnabled = true; }
+                    if (roboradioEnabled == true) { roboRadioLED.BackColor = Color.White; roboradioEnabled = false; } else { roboRadioLED.BackColor = Color.Yellow; roboradioEnabled = true; }
+                    break;
+                default:
+                    roboRadioLED.BackColor = Color.White;
                     break;
             }
-            if (radioState != 11 && radioState != 12 && radioState != 21 && radioState != 22 && radioState != 31 && radioState != 32) { RadioLED.BackColor = Color.White; }
         }
-
-        private void commUpdate(object myObject, EventArgs myEventArgs) 
+        private void robocommUpdate(object myObject, EventArgs myEventArgs)
         {
-            commState = CommLEDColorPicker.SelectedIndex * 10 + CommLEDPatternPicker.SelectedIndex;
-            switch (commState)
+            robocommState = roboCommLEDColorPicker.SelectedIndex * 10 + roboCommLEDPatternPicker.SelectedIndex;
+            switch (robocommState)
             {
                 case 11:
-                    CommLED.BackColor = Color.Green;
+                    roboCommLED.BackColor = Color.Green;
                     break;
                 case 12:
-                    if (commEnabled == true) { CommLED.BackColor = Color.White; commEnabled = false; } else { CommLED.BackColor = Color.Green; commEnabled = true; }
+                    if (robocommEnabled == true) { roboCommLED.BackColor = Color.White; robocommEnabled = false; } else { roboCommLED.BackColor = Color.Green; robocommEnabled = true; }
                     break;
                 case 21:
-                    CommLED.BackColor = Color.Red;
+                    roboCommLED.BackColor = Color.Red;
                     break;
                 case 22:
-                    if (commEnabled == true) { CommLED.BackColor = Color.White; commEnabled = false; } else { CommLED.BackColor = Color.Red; commEnabled = true; }
+                    if (robocommEnabled == true) { roboCommLED.BackColor = Color.White; robocommEnabled = false; } else { roboCommLED.BackColor = Color.Red; robocommEnabled = true; }
                     break;
                 case 31:
-                    CommLED.BackColor = Color.Yellow;
+                    roboCommLED.BackColor = Color.Yellow;
                     break;
                 case 32:
-                    if (commEnabled == true) { CommLED.BackColor = Color.White; commEnabled = false; } else { CommLED.BackColor = Color.Yellow; commEnabled = true; }
+                    if (robocommEnabled == true) { roboCommLED.BackColor = Color.White; robocommEnabled = false; } else { roboCommLED.BackColor = Color.Yellow; robocommEnabled = true; }
+                    break;
+                default:
+                    roboCommLED.BackColor = Color.White;
                     break;
             }
-            if (commState != 11 && commState != 12 && commState != 21 && commState != 22 && commState != 31 && commState != 32) { CommLED.BackColor = Color.White; }
         }
-
-        private void modeUpdate(object myObject, EventArgs myEventArgs)
+        private void robomodeUpdate(object myObject, EventArgs myEventArgs)
         {
-            modeState = ModeLEDColorPicker.SelectedIndex * 10 + ModeLEDPatternPicker.SelectedIndex;
-            switch (modeState)
+            robomodeState = roboModeLEDColorPicker.SelectedIndex * 10 + roboModeLEDPatternPicker.SelectedIndex;
+            switch (robomodeState)
             {
                 case 11:
-                    ModeLED.BackColor = Color.Green;
-                    break;            
+                    roboModeLED.BackColor = Color.Green;
+                    break;
                 case 21:
-                    ModeLED.BackColor = Color.Red;
-                    break;                
+                    roboModeLED.BackColor = Color.Red;
+                    break;
                 case 31:
-                    ModeLED.BackColor = Color.Yellow;
-                    break;               
+                    roboModeLED.BackColor = Color.Yellow;
+                    break;
+                default:
+                    roboModeLED.BackColor = Color.White;
+                    break;
             }
-            if (modeState != 11 && modeState != 21 && modeState != 31) { ModeLED.BackColor = Color.White; }
         }
-        private void rslUpdate(object myObject, EventArgs myEventArgs) 
+        private void roborslUpdate(object myObject, EventArgs myEventArgs)
         {
-            rslState = RSLLEDColorPicker.SelectedIndex * 10 + RSLLEDPatternPicker.SelectedIndex;
-            switch (rslState)
+            roborslState = roboRSLLEDColorPicker.SelectedIndex * 10 + roboRSLLEDPatternPicker.SelectedIndex;
+            switch (roborslState)
             {
                 case 11:
-                    RSLLed.BackColor = Color.Yellow;
+                    roboRSLLed.BackColor = Color.Yellow;
                     break;
                 case 12:
-                    if (rslEnabled == true) { RSLLed.BackColor = Color.White; rslEnabled = false; } else { RSLLed.BackColor = Color.Yellow; rslEnabled = true; }
+                    if (roborslEnabled == true) { roboRSLLed.BackColor = Color.White; roborslEnabled = false; } else { roboRSLLed.BackColor = Color.Yellow; roborslEnabled = true; }
+                    break;
+                default:
+                    roboRSLLed.BackColor = Color.White;
                     break;
             }
-            if (rslState != 11 && rslState != 12) { RSLLed.BackColor = Color.White; }
         }
+        #endregion
+        #region Talon Logic
 
-        private void roborioImage_Click(object sender, EventArgs e)
+        //logic for blinking lights
+        private void talonLED(object myObject, EventArgs myEventArgs)
         {
-            if (creditsShown == false)
+            talonState = talonModeSelector.SelectedIndex * 1000 + talonTopColorSelector.SelectedIndex * 100 + talonBottomColorSelector.SelectedIndex * 10 + talonPatternSelector.SelectedIndex;
+            switch (talonState)
             {
-                Creditsbox.Location = new Point(0, 0);
-                closeCreditsButton.BringToFront();
-                Creditsbox.Visible = true;
-                closeCreditsButton.Visible = true;
-                rightSideBox.Visible = true;
-                leftSideBox.Visible = true;
+                default:
+                    talonled.Interval = 400;
+                    talonTopLED.BackColor = Color.White;
+                    talonBotLED.BackColor = Color.White;
+                    break;
+                //calibration blink codes
+                case 122:
+                    if (talonTopLED.BackColor == Color.White) { talonTopLED.BackColor = Color.Green; talonBotLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; talonled.Interval = 400; }                   
+                    break;
+                case 212:
+                    if (talonTopLED.BackColor == Color.White) { talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.Green; talonled.Interval = 100; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; talonled.Interval = 400; }
+                    break;
+                case 113:
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Green; talonBotLED.BackColor = Color.Green; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; }
+                    break;
+                case 223:
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.Red; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; }
+                    break;
+                //normal opertaion blink codes
+                case 1113:  //flash red/green
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Green; talonBotLED.BackColor = Color.Green; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; }
+                    break;
+                case 1223: //flash red/green
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.Red; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; }
+                    break;
+                case 1036: //alt orange
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Orange; talonBotLED.BackColor = Color.White; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.Orange; }
+                    break;
+                case 1306: //alt orange
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Orange; talonBotLED.BackColor = Color.White; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.Orange; }
+                    break;
+                case 1026: //alt red
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.White; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.Red; }
+                    break;
+                case 1206: //alt red
+                    if (talonTopLED.BackColor == Color.White) { talonled.Interval = 400; talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.White; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.Red; }
+                    break;
+                case 1236: //alt red/orange
+                    if (talonTopLED.BackColor == Color.Red) { talonled.Interval = 400; talonTopLED.BackColor = Color.Orange; talonBotLED.BackColor = Color.Red; }
+                    else { talonTopLED.BackColor = Color.Red; talonled.Interval = 400; talonBotLED.BackColor = Color.Orange; }
+                    break;
+                case 1326: //alt red/orange
+                    if (talonTopLED.BackColor == Color.Red) { talonled.Interval = 400; talonTopLED.BackColor = Color.Orange; talonBotLED.BackColor = Color.Red; }
+                    else { talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.Orange; }
+                    break;
+                case 1025: //str red
+                    if(talonTopLED.BackColor == Color.White && talonBotLED.BackColor == Color.White) { talonTopLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else if (talonTopLED.BackColor == Color.Red ) { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else { talonBotLED.BackColor = Color.White; talonled.Interval = 400; }
+                    break;
+                case 1205: //str red
+                    if (talonTopLED.BackColor == Color.White && talonBotLED.BackColor == Color.White) { talonTopLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else if (talonTopLED.BackColor == Color.Red) { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else { talonBotLED.BackColor = Color.White; talonled.Interval = 400; }
+                    break;
+                case 1024: //str red
+                    if (talonBotLED.BackColor == Color.White && talonTopLED.BackColor == Color.White) { talonBotLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else if (talonBotLED.BackColor == Color.Red) { talonBotLED.BackColor = Color.White; talonTopLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else { talonTopLED.BackColor = Color.White; talonled.Interval = 400; }
+                    break;
+                case 1204: //str red
+                    if (talonBotLED.BackColor == Color.White && talonTopLED.BackColor == Color.White) { talonBotLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else if (talonBotLED.BackColor == Color.Red) { talonBotLED.BackColor = Color.White; talonTopLED.BackColor = Color.Red; talonled.Interval = 100; }
+                    else { talonTopLED.BackColor = Color.White; talonled.Interval = 400; }
+                    break;
+                case 1017: //cha green
+                    if (talonBotLED.BackColor == Color.Green) { talonled.Interval = 400; talonBotLED.BackColor = Color.Orange; }
+                    else { talonBotLED.BackColor = Color.Green; }
+                    break;
+                case 1037: //cha orange
+                    if (talonBotLED.BackColor == Color.Green) { talonled.Interval = 400; talonBotLED.BackColor = Color.Orange; }
+                    else { talonBotLED.BackColor = Color.Green; }
+                    break;
+                case 1331: //solid orange
+                    talonled.Interval = 400;
+                    talonTopLED.BackColor = Color.Orange;
+                    talonBotLED.BackColor = Color.Orange;
+                    break;
+                //B/C CAL Blink Codes
+                case 2221: //solid red
+                    talonled.Interval = 400;
+                    talonTopLED.BackColor = Color.Red;
+                    talonBotLED.BackColor = Color.Red;
+                    break;
             }
-
         }
-
-        private void closeCreditsButton_Click(object sender, EventArgs e)
+        //logic for output box
+        private void talonUpdate(object myObject, EventArgs myEventArgs)
         {
-            Creditsbox.Visible = false;
-            closeCreditsButton.Visible = false;
-            creditsShown = false;
-            rightSideBox.Visible = false;
-            leftSideBox.Visible = false;
+            talonOutputBox.Items.Clear();
+            switch (talonState)
+            {
+                default:
+                    talonOutputBox.Items.Add("Invalid Input.");
+                    break;
+                //calibration
+                case 122:
+                    talonOutputBox.Items.Add("Calibration Mode");
+                    break;
+                case 212:
+                    talonOutputBox.Items.Add("Calibration Mode");
+                    break;
+                case 113:
+                    talonOutputBox.Items.Add("Successful Calibration");
+                    break;
+                case 223:
+                    talonOutputBox.Items.Add("Failed Calibration");
+                    break;
+                //normal operation
+                case 1113:
+                    talonOutputBox.Items.Add("Forward throttle is applied.");
+                    talonOutputBox.Items.Add("Blink Rate is proportional to Duty Cycle.");
+                    break;
+                case 1223:
+                    talonOutputBox.Items.Add("Reverse throttle is applied.");
+                    talonOutputBox.Items.Add("Blink Rate is proportional to Duty Cycle.");
+                    break;
+                case 1000:
+                    talonOutputBox.Items.Add("No Power is being applied to Talon");
+                    break;
+                case 1306:
+                    talonOutputBox.Items.Add("CAN bus detected, robot disabled.");
+                    break;
+                case 1036:
+                    talonOutputBox.Items.Add("CAN bus detected, robot disabled.");
+                    break;
+                case 1206:
+                    talonOutputBox.Items.Add("CAN bus/PWM is not detected.");
+                    break;
+                case 1026:
+                    talonOutputBox.Items.Add("CAN bus/PWM is not detected.");
+                    break;
+                case 1236:
+                    talonOutputBox.Items.Add("Damaged Hardware.");
+                    break;
+                case 1326:
+                    talonOutputBox.Items.Add("Damaged Hardware.");
+                    break;
+                case 1025:
+                    talonOutputBox.Items.Add("Forward Limit Switch or Forward Soft Limit.");
+                    break;
+                case 1205:
+                    talonOutputBox.Items.Add("Forward Limit Switch or Forward Soft Limit.");
+                    break;
+                case 1024:
+                    talonOutputBox.Items.Add("Reverse Limit Switch or Reverse Soft Limit.");
+                    break;
+                case 1204:
+                    talonOutputBox.Items.Add("Reverse Limit Switch or Reverse Soft Limit.");
+                    break;
+                case 1017:
+                    talonOutputBox.Items.Add("In Boot-loader");
+                    break;
+                case 1037:
+                    talonOutputBox.Items.Add("In Boot-loader");
+                    break;
+                case 1331:
+                    talonOutputBox.Items.Add("Neutral throttle is applied.");
+                    talonOutputBox.Items.Add("Throttle is zero or is within dead band.");
+                    break;
+                //b/c cal
+                case 2221:
+                    talonOutputBox.Items.Add("Brake Mode");
+                    break;
+                case 2000:
+                    talonOutputBox.Items.Add("Coast Mode");
+                    break;
+            }
         }
+        #endregion
+
     }
 }

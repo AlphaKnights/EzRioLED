@@ -30,141 +30,165 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.PowerLEDBox = new System.Windows.Forms.GroupBox();
-            this.PowerLEDPatternPicker = new System.Windows.Forms.ListBox();
-            this.PowerLEDColorPicker = new System.Windows.Forms.ListBox();
-            this.PowerLEDPattern = new System.Windows.Forms.Label();
-            this.PowerLEDColor = new System.Windows.Forms.Label();
+            this.roboPowerLEDBox = new System.Windows.Forms.GroupBox();
+            this.roboPowerLEDPatternPicker = new System.Windows.Forms.ListBox();
+            this.roboPowerLEDColorPicker = new System.Windows.Forms.ListBox();
+            this.roboPowerLEDPattern = new System.Windows.Forms.Label();
+            this.roboPowerLEDColor = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.StatusLEDPatternPicker = new System.Windows.Forms.ListBox();
+            this.roboStatusLEDPatternPicker = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.StatusLEDBox = new System.Windows.Forms.GroupBox();
-            this.StatusLEDColorPicker = new System.Windows.Forms.ListBox();
-            this.RadioLEDBox = new System.Windows.Forms.GroupBox();
-            this.RadioLEDPatternPicker = new System.Windows.Forms.ListBox();
-            this.RadioLEDColorPicker = new System.Windows.Forms.ListBox();
+            this.roboStatusLEDBox = new System.Windows.Forms.GroupBox();
+            this.roboStatusLEDColorPicker = new System.Windows.Forms.ListBox();
+            this.roboRadioLEDBox = new System.Windows.Forms.GroupBox();
+            this.roboRadioLEDPatternPicker = new System.Windows.Forms.ListBox();
+            this.roboRadioLEDColorPicker = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.CommLEDBox = new System.Windows.Forms.GroupBox();
-            this.CommLEDPatternPicker = new System.Windows.Forms.ListBox();
-            this.CommLEDColorPicker = new System.Windows.Forms.ListBox();
+            this.roboCommLEDBox = new System.Windows.Forms.GroupBox();
+            this.roboCommLEDPatternPicker = new System.Windows.Forms.ListBox();
+            this.roboCommLEDColorPicker = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.RSLLEDBox = new System.Windows.Forms.GroupBox();
-            this.RSLLEDPatternPicker = new System.Windows.Forms.ListBox();
-            this.RSLLEDColorPicker = new System.Windows.Forms.ListBox();
+            this.roboRSLLEDBox = new System.Windows.Forms.GroupBox();
+            this.roboRSLLEDPatternPicker = new System.Windows.Forms.ListBox();
+            this.roboRSLLEDColorPicker = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.ModeLEDBox = new System.Windows.Forms.GroupBox();
-            this.ModeLEDPatternPicker = new System.Windows.Forms.ListBox();
-            this.ModeLEDColorPicker = new System.Windows.Forms.ListBox();
+            this.roboModeLEDBox = new System.Windows.Forms.GroupBox();
+            this.roboModeLEDPatternPicker = new System.Windows.Forms.ListBox();
+            this.roboModeLEDColorPicker = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.ResponseOutputBox = new System.Windows.Forms.ListBox();
+            this.roboResponseOutputBox = new System.Windows.Forms.ListBox();
             this.roborioImage = new System.Windows.Forms.PictureBox();
-            this.ModeLED = new System.Windows.Forms.PictureBox();
-            this.RSLLed = new System.Windows.Forms.PictureBox();
-            this.CommLED = new System.Windows.Forms.PictureBox();
-            this.RadioLED = new System.Windows.Forms.PictureBox();
-            this.StatusLED = new System.Windows.Forms.PictureBox();
-            this.PowerLED = new System.Windows.Forms.PictureBox();
+            this.roboModeLED = new System.Windows.Forms.PictureBox();
+            this.roboRSLLed = new System.Windows.Forms.PictureBox();
+            this.roboCommLED = new System.Windows.Forms.PictureBox();
+            this.roboRadioLED = new System.Windows.Forms.PictureBox();
+            this.roboStatusLED = new System.Windows.Forms.PictureBox();
+            this.roboPowerLED = new System.Windows.Forms.PictureBox();
             this.Creditsbox = new System.Windows.Forms.TextBox();
-            this.closeCreditsButton = new System.Windows.Forms.Button();
-            this.rightSideBox = new System.Windows.Forms.ListBox();
-            this.leftSideBox = new System.Windows.Forms.ListBox();
-            this.PowerLEDBox.SuspendLayout();
-            this.StatusLEDBox.SuspendLayout();
-            this.RadioLEDBox.SuspendLayout();
-            this.CommLEDBox.SuspendLayout();
-            this.RSLLEDBox.SuspendLayout();
-            this.ModeLEDBox.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.RoborioTab = new System.Windows.Forms.TabPage();
+            this.TalonTab = new System.Windows.Forms.TabPage();
+            this.talonOutputBox = new System.Windows.Forms.ListBox();
+            this.talonStatusLEDs = new System.Windows.Forms.GroupBox();
+            this.talonBottomColor = new System.Windows.Forms.Label();
+            this.talonBottomColorSelector = new System.Windows.Forms.ListBox();
+            this.talonPatternSelector = new System.Windows.Forms.ListBox();
+            this.talonTopColorSelector = new System.Windows.Forms.ListBox();
+            this.talonPattern = new System.Windows.Forms.Label();
+            this.talonTopColor = new System.Windows.Forms.Label();
+            this.talonTopLED = new System.Windows.Forms.TextBox();
+            this.talonBotLED = new System.Windows.Forms.TextBox();
+            this.Talonimage = new System.Windows.Forms.PictureBox();
+            this.RadioTab = new System.Windows.Forms.TabPage();
+            this.PCMTab = new System.Windows.Forms.TabPage();
+            this.PDPTab = new System.Windows.Forms.TabPage();
+            this.VRMTab = new System.Windows.Forms.TabPage();
+            this.CreditsTab = new System.Windows.Forms.TabPage();
+            this.talonModeSelector = new System.Windows.Forms.ListBox();
+            this.talonMode = new System.Windows.Forms.Label();
+            this.roboPowerLEDBox.SuspendLayout();
+            this.roboStatusLEDBox.SuspendLayout();
+            this.roboRadioLEDBox.SuspendLayout();
+            this.roboCommLEDBox.SuspendLayout();
+            this.roboRSLLEDBox.SuspendLayout();
+            this.roboModeLEDBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roborioImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ModeLED)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RSLLed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommLED)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RadioLED)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StatusLED)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PowerLED)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboModeLED)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboRSLLed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboCommLED)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboRadioLED)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboStatusLED)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboPowerLED)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.RoborioTab.SuspendLayout();
+            this.TalonTab.SuspendLayout();
+            this.talonStatusLEDs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Talonimage)).BeginInit();
+            this.CreditsTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // PowerLEDBox
+            // roboPowerLEDBox
             // 
-            this.PowerLEDBox.BackColor = System.Drawing.SystemColors.Control;
-            this.PowerLEDBox.Controls.Add(this.PowerLEDPatternPicker);
-            this.PowerLEDBox.Controls.Add(this.PowerLEDColorPicker);
-            this.PowerLEDBox.Controls.Add(this.PowerLEDPattern);
-            this.PowerLEDBox.Controls.Add(this.PowerLEDColor);
-            this.PowerLEDBox.Location = new System.Drawing.Point(5, 4);
-            this.PowerLEDBox.Margin = new System.Windows.Forms.Padding(1);
-            this.PowerLEDBox.Name = "PowerLEDBox";
-            this.PowerLEDBox.Padding = new System.Windows.Forms.Padding(1);
-            this.PowerLEDBox.Size = new System.Drawing.Size(151, 100);
-            this.PowerLEDBox.TabIndex = 0;
-            this.PowerLEDBox.TabStop = false;
-            this.PowerLEDBox.Text = "Power LED";
+            this.roboPowerLEDBox.BackColor = System.Drawing.SystemColors.Control;
+            this.roboPowerLEDBox.Controls.Add(this.roboPowerLEDPatternPicker);
+            this.roboPowerLEDBox.Controls.Add(this.roboPowerLEDColorPicker);
+            this.roboPowerLEDBox.Controls.Add(this.roboPowerLEDPattern);
+            this.roboPowerLEDBox.Controls.Add(this.roboPowerLEDColor);
+            this.roboPowerLEDBox.Location = new System.Drawing.Point(4, 4);
+            this.roboPowerLEDBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboPowerLEDBox.Name = "roboPowerLEDBox";
+            this.roboPowerLEDBox.Padding = new System.Windows.Forms.Padding(1);
+            this.roboPowerLEDBox.Size = new System.Drawing.Size(151, 100);
+            this.roboPowerLEDBox.TabIndex = 0;
+            this.roboPowerLEDBox.TabStop = false;
+            this.roboPowerLEDBox.Text = "Power LED";
             // 
-            // PowerLEDPatternPicker
+            // roboPowerLEDPatternPicker
             // 
-            this.PowerLEDPatternPicker.FormattingEnabled = true;
-            this.PowerLEDPatternPicker.Items.AddRange(new object[] {
+            this.roboPowerLEDPatternPicker.FormattingEnabled = true;
+            this.roboPowerLEDPatternPicker.Items.AddRange(new object[] {
             "Off",
             "Solid",
             "Flashing"});
-            this.PowerLEDPatternPicker.Location = new System.Drawing.Point(76, 29);
-            this.PowerLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.PowerLEDPatternPicker.Name = "PowerLEDPatternPicker";
-            this.PowerLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
-            this.PowerLEDPatternPicker.TabIndex = 3;
+            this.roboPowerLEDPatternPicker.Location = new System.Drawing.Point(76, 29);
+            this.roboPowerLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboPowerLEDPatternPicker.Name = "roboPowerLEDPatternPicker";
+            this.roboPowerLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
+            this.roboPowerLEDPatternPicker.TabIndex = 3;
             // 
-            // PowerLEDColorPicker
+            // roboPowerLEDColorPicker
             // 
-            this.PowerLEDColorPicker.FormattingEnabled = true;
-            this.PowerLEDColorPicker.Items.AddRange(new object[] {
+            this.roboPowerLEDColorPicker.FormattingEnabled = true;
+            this.roboPowerLEDColorPicker.Items.AddRange(new object[] {
             "Off",
             "Green",
             "Red",
             "Yellow"});
-            this.PowerLEDColorPicker.Location = new System.Drawing.Point(4, 29);
-            this.PowerLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.PowerLEDColorPicker.Name = "PowerLEDColorPicker";
-            this.PowerLEDColorPicker.Size = new System.Drawing.Size(50, 56);
-            this.PowerLEDColorPicker.TabIndex = 2;
+            this.roboPowerLEDColorPicker.Location = new System.Drawing.Point(4, 29);
+            this.roboPowerLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboPowerLEDColorPicker.Name = "roboPowerLEDColorPicker";
+            this.roboPowerLEDColorPicker.Size = new System.Drawing.Size(50, 56);
+            this.roboPowerLEDColorPicker.TabIndex = 2;
             // 
-            // PowerLEDPattern
+            // roboPowerLEDPattern
             // 
-            this.PowerLEDPattern.Location = new System.Drawing.Point(84, 14);
-            this.PowerLEDPattern.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.PowerLEDPattern.Name = "PowerLEDPattern";
-            this.PowerLEDPattern.Size = new System.Drawing.Size(54, 14);
-            this.PowerLEDPattern.TabIndex = 1;
-            this.PowerLEDPattern.Text = "Pattern";
-            this.PowerLEDPattern.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.roboPowerLEDPattern.Location = new System.Drawing.Point(84, 14);
+            this.roboPowerLEDPattern.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.roboPowerLEDPattern.Name = "roboPowerLEDPattern";
+            this.roboPowerLEDPattern.Size = new System.Drawing.Size(54, 14);
+            this.roboPowerLEDPattern.TabIndex = 1;
+            this.roboPowerLEDPattern.Text = "Pattern";
+            this.roboPowerLEDPattern.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PowerLEDColor
+            // roboPowerLEDColor
             // 
-            this.PowerLEDColor.Location = new System.Drawing.Point(12, 13);
-            this.PowerLEDColor.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.PowerLEDColor.Name = "PowerLEDColor";
-            this.PowerLEDColor.Size = new System.Drawing.Size(40, 15);
-            this.PowerLEDColor.TabIndex = 0;
-            this.PowerLEDColor.Text = "Color";
-            this.PowerLEDColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.roboPowerLEDColor.Location = new System.Drawing.Point(12, 13);
+            this.roboPowerLEDColor.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.roboPowerLEDColor.Name = "roboPowerLEDColor";
+            this.roboPowerLEDColor.Size = new System.Drawing.Size(40, 15);
+            this.roboPowerLEDColor.TabIndex = 0;
+            this.roboPowerLEDColor.Text = "Color";
+            this.roboPowerLEDColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // StatusLEDPatternPicker
+            // roboStatusLEDPatternPicker
             // 
-            this.StatusLEDPatternPicker.FormattingEnabled = true;
-            this.StatusLEDPatternPicker.Items.AddRange(new object[] {
+            this.roboStatusLEDPatternPicker.FormattingEnabled = true;
+            this.roboStatusLEDPatternPicker.Items.AddRange(new object[] {
             "2",
             "3",
             "4",
             "Fast/Solid"});
-            this.StatusLEDPatternPicker.Location = new System.Drawing.Point(65, 29);
-            this.StatusLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.StatusLEDPatternPicker.Name = "StatusLEDPatternPicker";
-            this.StatusLEDPatternPicker.Size = new System.Drawing.Size(59, 56);
-            this.StatusLEDPatternPicker.TabIndex = 3;
+            this.roboStatusLEDPatternPicker.Location = new System.Drawing.Point(65, 29);
+            this.roboStatusLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboStatusLEDPatternPicker.Name = "roboStatusLEDPatternPicker";
+            this.roboStatusLEDPatternPicker.Size = new System.Drawing.Size(59, 56);
+            this.roboStatusLEDPatternPicker.TabIndex = 3;
             // 
             // label1
             // 
@@ -186,76 +210,76 @@
             this.label2.Text = "Color";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // StatusLEDBox
+            // roboStatusLEDBox
             // 
-            this.StatusLEDBox.BackColor = System.Drawing.SystemColors.Control;
-            this.StatusLEDBox.Controls.Add(this.StatusLEDPatternPicker);
-            this.StatusLEDBox.Controls.Add(this.StatusLEDColorPicker);
-            this.StatusLEDBox.Controls.Add(this.label1);
-            this.StatusLEDBox.Controls.Add(this.label2);
-            this.StatusLEDBox.Location = new System.Drawing.Point(158, 4);
-            this.StatusLEDBox.Margin = new System.Windows.Forms.Padding(1);
-            this.StatusLEDBox.Name = "StatusLEDBox";
-            this.StatusLEDBox.Padding = new System.Windows.Forms.Padding(1);
-            this.StatusLEDBox.Size = new System.Drawing.Size(151, 100);
-            this.StatusLEDBox.TabIndex = 4;
-            this.StatusLEDBox.TabStop = false;
-            this.StatusLEDBox.Text = "Status LED";
+            this.roboStatusLEDBox.BackColor = System.Drawing.SystemColors.Control;
+            this.roboStatusLEDBox.Controls.Add(this.roboStatusLEDPatternPicker);
+            this.roboStatusLEDBox.Controls.Add(this.roboStatusLEDColorPicker);
+            this.roboStatusLEDBox.Controls.Add(this.label1);
+            this.roboStatusLEDBox.Controls.Add(this.label2);
+            this.roboStatusLEDBox.Location = new System.Drawing.Point(157, 4);
+            this.roboStatusLEDBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboStatusLEDBox.Name = "roboStatusLEDBox";
+            this.roboStatusLEDBox.Padding = new System.Windows.Forms.Padding(1);
+            this.roboStatusLEDBox.Size = new System.Drawing.Size(151, 100);
+            this.roboStatusLEDBox.TabIndex = 4;
+            this.roboStatusLEDBox.TabStop = false;
+            this.roboStatusLEDBox.Text = "Status LED";
             // 
-            // StatusLEDColorPicker
+            // roboStatusLEDColorPicker
             // 
-            this.StatusLEDColorPicker.FormattingEnabled = true;
-            this.StatusLEDColorPicker.Items.AddRange(new object[] {
+            this.roboStatusLEDColorPicker.FormattingEnabled = true;
+            this.roboStatusLEDColorPicker.Items.AddRange(new object[] {
             "Off",
             "Yellow"});
-            this.StatusLEDColorPicker.Location = new System.Drawing.Point(4, 29);
-            this.StatusLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.StatusLEDColorPicker.Name = "StatusLEDColorPicker";
-            this.StatusLEDColorPicker.Size = new System.Drawing.Size(50, 30);
-            this.StatusLEDColorPicker.TabIndex = 2;
+            this.roboStatusLEDColorPicker.Location = new System.Drawing.Point(4, 29);
+            this.roboStatusLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboStatusLEDColorPicker.Name = "roboStatusLEDColorPicker";
+            this.roboStatusLEDColorPicker.Size = new System.Drawing.Size(50, 30);
+            this.roboStatusLEDColorPicker.TabIndex = 2;
             // 
-            // RadioLEDBox
+            // roboRadioLEDBox
             // 
-            this.RadioLEDBox.BackColor = System.Drawing.SystemColors.Control;
-            this.RadioLEDBox.Controls.Add(this.RadioLEDPatternPicker);
-            this.RadioLEDBox.Controls.Add(this.RadioLEDColorPicker);
-            this.RadioLEDBox.Controls.Add(this.label3);
-            this.RadioLEDBox.Controls.Add(this.label4);
-            this.RadioLEDBox.Location = new System.Drawing.Point(311, 4);
-            this.RadioLEDBox.Margin = new System.Windows.Forms.Padding(1);
-            this.RadioLEDBox.Name = "RadioLEDBox";
-            this.RadioLEDBox.Padding = new System.Windows.Forms.Padding(1);
-            this.RadioLEDBox.Size = new System.Drawing.Size(146, 100);
-            this.RadioLEDBox.TabIndex = 5;
-            this.RadioLEDBox.TabStop = false;
-            this.RadioLEDBox.Text = "Radio LED";
+            this.roboRadioLEDBox.BackColor = System.Drawing.SystemColors.Control;
+            this.roboRadioLEDBox.Controls.Add(this.roboRadioLEDPatternPicker);
+            this.roboRadioLEDBox.Controls.Add(this.roboRadioLEDColorPicker);
+            this.roboRadioLEDBox.Controls.Add(this.label3);
+            this.roboRadioLEDBox.Controls.Add(this.label4);
+            this.roboRadioLEDBox.Location = new System.Drawing.Point(310, 4);
+            this.roboRadioLEDBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboRadioLEDBox.Name = "roboRadioLEDBox";
+            this.roboRadioLEDBox.Padding = new System.Windows.Forms.Padding(1);
+            this.roboRadioLEDBox.Size = new System.Drawing.Size(146, 100);
+            this.roboRadioLEDBox.TabIndex = 5;
+            this.roboRadioLEDBox.TabStop = false;
+            this.roboRadioLEDBox.Text = "Radio LED";
             // 
-            // RadioLEDPatternPicker
+            // roboRadioLEDPatternPicker
             // 
-            this.RadioLEDPatternPicker.FormattingEnabled = true;
-            this.RadioLEDPatternPicker.Items.AddRange(new object[] {
+            this.roboRadioLEDPatternPicker.FormattingEnabled = true;
+            this.roboRadioLEDPatternPicker.Items.AddRange(new object[] {
             "Off",
             "Solid",
             "Blinking"});
-            this.RadioLEDPatternPicker.Location = new System.Drawing.Point(72, 29);
-            this.RadioLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.RadioLEDPatternPicker.Name = "RadioLEDPatternPicker";
-            this.RadioLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
-            this.RadioLEDPatternPicker.TabIndex = 3;
+            this.roboRadioLEDPatternPicker.Location = new System.Drawing.Point(72, 29);
+            this.roboRadioLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboRadioLEDPatternPicker.Name = "roboRadioLEDPatternPicker";
+            this.roboRadioLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
+            this.roboRadioLEDPatternPicker.TabIndex = 3;
             // 
-            // RadioLEDColorPicker
+            // roboRadioLEDColorPicker
             // 
-            this.RadioLEDColorPicker.FormattingEnabled = true;
-            this.RadioLEDColorPicker.Items.AddRange(new object[] {
+            this.roboRadioLEDColorPicker.FormattingEnabled = true;
+            this.roboRadioLEDColorPicker.Items.AddRange(new object[] {
             "Off",
             "Green",
             "Red",
             "Yellow"});
-            this.RadioLEDColorPicker.Location = new System.Drawing.Point(4, 29);
-            this.RadioLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.RadioLEDColorPicker.Name = "RadioLEDColorPicker";
-            this.RadioLEDColorPicker.Size = new System.Drawing.Size(50, 56);
-            this.RadioLEDColorPicker.TabIndex = 2;
+            this.roboRadioLEDColorPicker.Location = new System.Drawing.Point(4, 29);
+            this.roboRadioLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboRadioLEDColorPicker.Name = "roboRadioLEDColorPicker";
+            this.roboRadioLEDColorPicker.Size = new System.Drawing.Size(50, 56);
+            this.roboRadioLEDColorPicker.TabIndex = 2;
             // 
             // label3
             // 
@@ -277,48 +301,48 @@
             this.label4.Text = "Color";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // CommLEDBox
+            // roboCommLEDBox
             // 
-            this.CommLEDBox.BackColor = System.Drawing.SystemColors.Control;
-            this.CommLEDBox.Controls.Add(this.CommLEDPatternPicker);
-            this.CommLEDBox.Controls.Add(this.CommLEDColorPicker);
-            this.CommLEDBox.Controls.Add(this.label5);
-            this.CommLEDBox.Controls.Add(this.label6);
-            this.CommLEDBox.Location = new System.Drawing.Point(5, 106);
-            this.CommLEDBox.Margin = new System.Windows.Forms.Padding(1);
-            this.CommLEDBox.Name = "CommLEDBox";
-            this.CommLEDBox.Padding = new System.Windows.Forms.Padding(1);
-            this.CommLEDBox.Size = new System.Drawing.Size(151, 100);
-            this.CommLEDBox.TabIndex = 6;
-            this.CommLEDBox.TabStop = false;
-            this.CommLEDBox.Text = "Comm LED";
+            this.roboCommLEDBox.BackColor = System.Drawing.SystemColors.Control;
+            this.roboCommLEDBox.Controls.Add(this.roboCommLEDPatternPicker);
+            this.roboCommLEDBox.Controls.Add(this.roboCommLEDColorPicker);
+            this.roboCommLEDBox.Controls.Add(this.label5);
+            this.roboCommLEDBox.Controls.Add(this.label6);
+            this.roboCommLEDBox.Location = new System.Drawing.Point(4, 106);
+            this.roboCommLEDBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboCommLEDBox.Name = "roboCommLEDBox";
+            this.roboCommLEDBox.Padding = new System.Windows.Forms.Padding(1);
+            this.roboCommLEDBox.Size = new System.Drawing.Size(151, 100);
+            this.roboCommLEDBox.TabIndex = 6;
+            this.roboCommLEDBox.TabStop = false;
+            this.roboCommLEDBox.Text = "Comm LED";
             // 
-            // CommLEDPatternPicker
+            // roboCommLEDPatternPicker
             // 
-            this.CommLEDPatternPicker.FormattingEnabled = true;
-            this.CommLEDPatternPicker.Items.AddRange(new object[] {
+            this.roboCommLEDPatternPicker.FormattingEnabled = true;
+            this.roboCommLEDPatternPicker.Items.AddRange(new object[] {
             "Off",
             "Solid",
             "Blinking"});
-            this.CommLEDPatternPicker.Location = new System.Drawing.Point(76, 29);
-            this.CommLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.CommLEDPatternPicker.Name = "CommLEDPatternPicker";
-            this.CommLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
-            this.CommLEDPatternPicker.TabIndex = 3;
+            this.roboCommLEDPatternPicker.Location = new System.Drawing.Point(76, 29);
+            this.roboCommLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboCommLEDPatternPicker.Name = "roboCommLEDPatternPicker";
+            this.roboCommLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
+            this.roboCommLEDPatternPicker.TabIndex = 3;
             // 
-            // CommLEDColorPicker
+            // roboCommLEDColorPicker
             // 
-            this.CommLEDColorPicker.FormattingEnabled = true;
-            this.CommLEDColorPicker.Items.AddRange(new object[] {
+            this.roboCommLEDColorPicker.FormattingEnabled = true;
+            this.roboCommLEDColorPicker.Items.AddRange(new object[] {
             "Off",
             "Green",
             "Red",
             "Yellow"});
-            this.CommLEDColorPicker.Location = new System.Drawing.Point(4, 29);
-            this.CommLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.CommLEDColorPicker.Name = "CommLEDColorPicker";
-            this.CommLEDColorPicker.Size = new System.Drawing.Size(50, 56);
-            this.CommLEDColorPicker.TabIndex = 2;
+            this.roboCommLEDColorPicker.Location = new System.Drawing.Point(4, 29);
+            this.roboCommLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboCommLEDColorPicker.Name = "roboCommLEDColorPicker";
+            this.roboCommLEDColorPicker.Size = new System.Drawing.Size(50, 56);
+            this.roboCommLEDColorPicker.TabIndex = 2;
             // 
             // label5
             // 
@@ -340,46 +364,46 @@
             this.label6.Text = "Color";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // RSLLEDBox
+            // roboRSLLEDBox
             // 
-            this.RSLLEDBox.BackColor = System.Drawing.SystemColors.Control;
-            this.RSLLEDBox.Controls.Add(this.RSLLEDPatternPicker);
-            this.RSLLEDBox.Controls.Add(this.RSLLEDColorPicker);
-            this.RSLLEDBox.Controls.Add(this.label7);
-            this.RSLLEDBox.Controls.Add(this.label8);
-            this.RSLLEDBox.Location = new System.Drawing.Point(311, 106);
-            this.RSLLEDBox.Margin = new System.Windows.Forms.Padding(1);
-            this.RSLLEDBox.Name = "RSLLEDBox";
-            this.RSLLEDBox.Padding = new System.Windows.Forms.Padding(1);
-            this.RSLLEDBox.Size = new System.Drawing.Size(146, 100);
-            this.RSLLEDBox.TabIndex = 8;
-            this.RSLLEDBox.TabStop = false;
-            this.RSLLEDBox.Text = "RSL LED";
+            this.roboRSLLEDBox.BackColor = System.Drawing.SystemColors.Control;
+            this.roboRSLLEDBox.Controls.Add(this.roboRSLLEDPatternPicker);
+            this.roboRSLLEDBox.Controls.Add(this.roboRSLLEDColorPicker);
+            this.roboRSLLEDBox.Controls.Add(this.label7);
+            this.roboRSLLEDBox.Controls.Add(this.label8);
+            this.roboRSLLEDBox.Location = new System.Drawing.Point(310, 106);
+            this.roboRSLLEDBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboRSLLEDBox.Name = "roboRSLLEDBox";
+            this.roboRSLLEDBox.Padding = new System.Windows.Forms.Padding(1);
+            this.roboRSLLEDBox.Size = new System.Drawing.Size(146, 100);
+            this.roboRSLLEDBox.TabIndex = 8;
+            this.roboRSLLEDBox.TabStop = false;
+            this.roboRSLLEDBox.Text = "RSL LED";
             // 
-            // RSLLEDPatternPicker
+            // roboRSLLEDPatternPicker
             // 
-            this.RSLLEDPatternPicker.FormattingEnabled = true;
-            this.RSLLEDPatternPicker.Items.AddRange(new object[] {
+            this.roboRSLLEDPatternPicker.FormattingEnabled = true;
+            this.roboRSLLEDPatternPicker.Items.AddRange(new object[] {
             "Off",
             "Solid",
             "Blinking"});
-            this.RSLLEDPatternPicker.Location = new System.Drawing.Point(64, 29);
-            this.RSLLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.RSLLEDPatternPicker.Name = "RSLLEDPatternPicker";
-            this.RSLLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
-            this.RSLLEDPatternPicker.TabIndex = 3;
+            this.roboRSLLEDPatternPicker.Location = new System.Drawing.Point(64, 29);
+            this.roboRSLLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboRSLLEDPatternPicker.Name = "roboRSLLEDPatternPicker";
+            this.roboRSLLEDPatternPicker.Size = new System.Drawing.Size(50, 43);
+            this.roboRSLLEDPatternPicker.TabIndex = 3;
             // 
-            // RSLLEDColorPicker
+            // roboRSLLEDColorPicker
             // 
-            this.RSLLEDColorPicker.FormattingEnabled = true;
-            this.RSLLEDColorPicker.Items.AddRange(new object[] {
+            this.roboRSLLEDColorPicker.FormattingEnabled = true;
+            this.roboRSLLEDColorPicker.Items.AddRange(new object[] {
             "Off",
             "Yellow"});
-            this.RSLLEDColorPicker.Location = new System.Drawing.Point(4, 29);
-            this.RSLLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.RSLLEDColorPicker.Name = "RSLLEDColorPicker";
-            this.RSLLEDColorPicker.Size = new System.Drawing.Size(50, 30);
-            this.RSLLEDColorPicker.TabIndex = 2;
+            this.roboRSLLEDColorPicker.Location = new System.Drawing.Point(4, 29);
+            this.roboRSLLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboRSLLEDColorPicker.Name = "roboRSLLEDColorPicker";
+            this.roboRSLLEDColorPicker.Size = new System.Drawing.Size(50, 30);
+            this.roboRSLLEDColorPicker.TabIndex = 2;
             // 
             // label7
             // 
@@ -401,47 +425,47 @@
             this.label8.Text = "Color";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ModeLEDBox
+            // roboModeLEDBox
             // 
-            this.ModeLEDBox.BackColor = System.Drawing.SystemColors.Control;
-            this.ModeLEDBox.Controls.Add(this.ModeLEDPatternPicker);
-            this.ModeLEDBox.Controls.Add(this.ModeLEDColorPicker);
-            this.ModeLEDBox.Controls.Add(this.label9);
-            this.ModeLEDBox.Controls.Add(this.label10);
-            this.ModeLEDBox.Location = new System.Drawing.Point(158, 106);
-            this.ModeLEDBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ModeLEDBox.Name = "ModeLEDBox";
-            this.ModeLEDBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ModeLEDBox.Size = new System.Drawing.Size(151, 100);
-            this.ModeLEDBox.TabIndex = 7;
-            this.ModeLEDBox.TabStop = false;
-            this.ModeLEDBox.Text = "Mode LED";
+            this.roboModeLEDBox.BackColor = System.Drawing.SystemColors.Control;
+            this.roboModeLEDBox.Controls.Add(this.roboModeLEDPatternPicker);
+            this.roboModeLEDBox.Controls.Add(this.roboModeLEDColorPicker);
+            this.roboModeLEDBox.Controls.Add(this.label9);
+            this.roboModeLEDBox.Controls.Add(this.label10);
+            this.roboModeLEDBox.Location = new System.Drawing.Point(157, 106);
+            this.roboModeLEDBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboModeLEDBox.Name = "roboModeLEDBox";
+            this.roboModeLEDBox.Padding = new System.Windows.Forms.Padding(1);
+            this.roboModeLEDBox.Size = new System.Drawing.Size(151, 100);
+            this.roboModeLEDBox.TabIndex = 7;
+            this.roboModeLEDBox.TabStop = false;
+            this.roboModeLEDBox.Text = "Mode LED";
             // 
-            // ModeLEDPatternPicker
+            // roboModeLEDPatternPicker
             // 
-            this.ModeLEDPatternPicker.FormattingEnabled = true;
-            this.ModeLEDPatternPicker.Items.AddRange(new object[] {
+            this.roboModeLEDPatternPicker.FormattingEnabled = true;
+            this.roboModeLEDPatternPicker.Items.AddRange(new object[] {
             "Off",
             "Solid"});
-            this.ModeLEDPatternPicker.Location = new System.Drawing.Point(74, 29);
-            this.ModeLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.ModeLEDPatternPicker.Name = "ModeLEDPatternPicker";
-            this.ModeLEDPatternPicker.Size = new System.Drawing.Size(50, 30);
-            this.ModeLEDPatternPicker.TabIndex = 3;
+            this.roboModeLEDPatternPicker.Location = new System.Drawing.Point(74, 29);
+            this.roboModeLEDPatternPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboModeLEDPatternPicker.Name = "roboModeLEDPatternPicker";
+            this.roboModeLEDPatternPicker.Size = new System.Drawing.Size(50, 30);
+            this.roboModeLEDPatternPicker.TabIndex = 3;
             // 
-            // ModeLEDColorPicker
+            // roboModeLEDColorPicker
             // 
-            this.ModeLEDColorPicker.FormattingEnabled = true;
-            this.ModeLEDColorPicker.Items.AddRange(new object[] {
+            this.roboModeLEDColorPicker.FormattingEnabled = true;
+            this.roboModeLEDColorPicker.Items.AddRange(new object[] {
             "Off",
             "Green",
             "Red",
             "Yellow"});
-            this.ModeLEDColorPicker.Location = new System.Drawing.Point(4, 29);
-            this.ModeLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
-            this.ModeLEDColorPicker.Name = "ModeLEDColorPicker";
-            this.ModeLEDColorPicker.Size = new System.Drawing.Size(50, 56);
-            this.ModeLEDColorPicker.TabIndex = 2;
+            this.roboModeLEDColorPicker.Location = new System.Drawing.Point(4, 29);
+            this.roboModeLEDColorPicker.Margin = new System.Windows.Forms.Padding(1);
+            this.roboModeLEDColorPicker.Name = "roboModeLEDColorPicker";
+            this.roboModeLEDColorPicker.Size = new System.Drawing.Size(50, 56);
+            this.roboModeLEDColorPicker.TabIndex = 2;
             // 
             // label9
             // 
@@ -463,171 +487,382 @@
             this.label10.Text = "Color";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ResponseOutputBox
+            // roboResponseOutputBox
             // 
-            this.ResponseOutputBox.FormattingEnabled = true;
-            this.ResponseOutputBox.Location = new System.Drawing.Point(5, 208);
-            this.ResponseOutputBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ResponseOutputBox.Name = "ResponseOutputBox";
-            this.ResponseOutputBox.Size = new System.Drawing.Size(454, 82);
-            this.ResponseOutputBox.TabIndex = 9;
+            this.roboResponseOutputBox.FormattingEnabled = true;
+            this.roboResponseOutputBox.Location = new System.Drawing.Point(4, 208);
+            this.roboResponseOutputBox.Margin = new System.Windows.Forms.Padding(1);
+            this.roboResponseOutputBox.Name = "roboResponseOutputBox";
+            this.roboResponseOutputBox.Size = new System.Drawing.Size(454, 82);
+            this.roboResponseOutputBox.TabIndex = 9;
             // 
             // roborioImage
             // 
             this.roborioImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("roborioImage.ErrorImage")));
             this.roborioImage.Image = ((System.Drawing.Image)(resources.GetObject("roborioImage.Image")));
             this.roborioImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("roborioImage.InitialImage")));
-            this.roborioImage.Location = new System.Drawing.Point(463, -5);
+            this.roborioImage.Location = new System.Drawing.Point(462, -5);
             this.roborioImage.Name = "roborioImage";
             this.roborioImage.Size = new System.Drawing.Size(164, 295);
             this.roborioImage.TabIndex = 11;
             this.roborioImage.TabStop = false;
-            this.roborioImage.Click += new System.EventHandler(this.roborioImage_Click);
             // 
-            // ModeLED
+            // roboModeLED
             // 
-            this.ModeLED.Location = new System.Drawing.Point(567, 201);
-            this.ModeLED.Name = "ModeLED";
-            this.ModeLED.Size = new System.Drawing.Size(44, 17);
-            this.ModeLED.TabIndex = 12;
-            this.ModeLED.TabStop = false;
+            this.roboModeLED.Location = new System.Drawing.Point(566, 201);
+            this.roboModeLED.Name = "roboModeLED";
+            this.roboModeLED.Size = new System.Drawing.Size(44, 17);
+            this.roboModeLED.TabIndex = 12;
+            this.roboModeLED.TabStop = false;
             // 
-            // RSLLed
+            // roboRSLLed
             // 
-            this.RSLLed.Location = new System.Drawing.Point(567, 260);
-            this.RSLLed.Name = "RSLLed";
-            this.RSLLed.Size = new System.Drawing.Size(44, 21);
-            this.RSLLed.TabIndex = 13;
-            this.RSLLed.TabStop = false;
+            this.roboRSLLed.Location = new System.Drawing.Point(566, 260);
+            this.roboRSLLed.Name = "roboRSLLed";
+            this.roboRSLLed.Size = new System.Drawing.Size(44, 21);
+            this.roboRSLLed.TabIndex = 13;
+            this.roboRSLLed.TabStop = false;
             // 
-            // CommLED
+            // roboCommLED
             // 
-            this.CommLED.Location = new System.Drawing.Point(567, 160);
-            this.CommLED.Name = "CommLED";
-            this.CommLED.Size = new System.Drawing.Size(44, 18);
-            this.CommLED.TabIndex = 14;
-            this.CommLED.TabStop = false;
+            this.roboCommLED.Location = new System.Drawing.Point(566, 160);
+            this.roboCommLED.Name = "roboCommLED";
+            this.roboCommLED.Size = new System.Drawing.Size(44, 18);
+            this.roboCommLED.TabIndex = 14;
+            this.roboCommLED.TabStop = false;
             // 
-            // RadioLED
+            // roboRadioLED
             // 
-            this.RadioLED.Location = new System.Drawing.Point(567, 120);
-            this.RadioLED.Name = "RadioLED";
-            this.RadioLED.Size = new System.Drawing.Size(44, 14);
-            this.RadioLED.TabIndex = 15;
-            this.RadioLED.TabStop = false;
+            this.roboRadioLED.Location = new System.Drawing.Point(566, 120);
+            this.roboRadioLED.Name = "roboRadioLED";
+            this.roboRadioLED.Size = new System.Drawing.Size(44, 14);
+            this.roboRadioLED.TabIndex = 15;
+            this.roboRadioLED.TabStop = false;
             // 
-            // StatusLED
+            // roboStatusLED
             // 
-            this.StatusLED.Location = new System.Drawing.Point(567, 59);
-            this.StatusLED.Name = "StatusLED";
-            this.StatusLED.Size = new System.Drawing.Size(44, 17);
-            this.StatusLED.TabIndex = 16;
-            this.StatusLED.TabStop = false;
+            this.roboStatusLED.Location = new System.Drawing.Point(566, 59);
+            this.roboStatusLED.Name = "roboStatusLED";
+            this.roboStatusLED.Size = new System.Drawing.Size(44, 17);
+            this.roboStatusLED.TabIndex = 16;
+            this.roboStatusLED.TabStop = false;
             // 
-            // PowerLED
+            // roboPowerLED
             // 
-            this.PowerLED.Location = new System.Drawing.Point(567, 18);
-            this.PowerLED.Name = "PowerLED";
-            this.PowerLED.Size = new System.Drawing.Size(44, 16);
-            this.PowerLED.TabIndex = 17;
-            this.PowerLED.TabStop = false;
+            this.roboPowerLED.Location = new System.Drawing.Point(566, 18);
+            this.roboPowerLED.Name = "roboPowerLED";
+            this.roboPowerLED.Size = new System.Drawing.Size(44, 16);
+            this.roboPowerLED.TabIndex = 17;
+            this.roboPowerLED.TabStop = false;
             // 
             // Creditsbox
             // 
-            this.Creditsbox.Location = new System.Drawing.Point(463, 184);
+            this.Creditsbox.Location = new System.Drawing.Point(3, 3);
             this.Creditsbox.Multiline = true;
             this.Creditsbox.Name = "Creditsbox";
             this.Creditsbox.ReadOnly = true;
-            this.Creditsbox.Size = new System.Drawing.Size(622, 252);
+            this.Creditsbox.Size = new System.Drawing.Size(622, 288);
             this.Creditsbox.TabIndex = 18;
             this.Creditsbox.Text = resources.GetString("Creditsbox.Text");
-            this.Creditsbox.Visible = false;
             // 
-            // closeCreditsButton
+            // tabControl1
             // 
-            this.closeCreditsButton.Location = new System.Drawing.Point(249, 260);
-            this.closeCreditsButton.Name = "closeCreditsButton";
-            this.closeCreditsButton.Size = new System.Drawing.Size(114, 23);
-            this.closeCreditsButton.TabIndex = 19;
-            this.closeCreditsButton.Text = "Click to Close";
-            this.closeCreditsButton.UseVisualStyleBackColor = true;
-            this.closeCreditsButton.Visible = false;
-            this.closeCreditsButton.Click += new System.EventHandler(this.closeCreditsButton_Click);
+            this.tabControl1.Controls.Add(this.RoborioTab);
+            this.tabControl1.Controls.Add(this.TalonTab);
+            this.tabControl1.Controls.Add(this.RadioTab);
+            this.tabControl1.Controls.Add(this.PCMTab);
+            this.tabControl1.Controls.Add(this.PDPTab);
+            this.tabControl1.Controls.Add(this.VRMTab);
+            this.tabControl1.Controls.Add(this.CreditsTab);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(634, 320);
+            this.tabControl1.TabIndex = 22;
             // 
-            // rightSideBox
+            // RoborioTab
             // 
-            this.rightSideBox.FormattingEnabled = true;
-            this.rightSideBox.Location = new System.Drawing.Point(369, 247);
-            this.rightSideBox.Name = "rightSideBox";
-            this.rightSideBox.Size = new System.Drawing.Size(258, 43);
-            this.rightSideBox.TabIndex = 20;
-            this.rightSideBox.Visible = false;
+            this.RoborioTab.Controls.Add(this.roboPowerLEDBox);
+            this.RoborioTab.Controls.Add(this.roboPowerLED);
+            this.RoborioTab.Controls.Add(this.roboStatusLEDBox);
+            this.RoborioTab.Controls.Add(this.roboStatusLED);
+            this.RoborioTab.Controls.Add(this.roboRadioLEDBox);
+            this.RoborioTab.Controls.Add(this.roboRadioLED);
+            this.RoborioTab.Controls.Add(this.roboModeLEDBox);
+            this.RoborioTab.Controls.Add(this.roboCommLED);
+            this.RoborioTab.Controls.Add(this.roboCommLEDBox);
+            this.RoborioTab.Controls.Add(this.roboRSLLed);
+            this.RoborioTab.Controls.Add(this.roboRSLLEDBox);
+            this.RoborioTab.Controls.Add(this.roboModeLED);
+            this.RoborioTab.Controls.Add(this.roboResponseOutputBox);
+            this.RoborioTab.Controls.Add(this.roborioImage);
+            this.RoborioTab.Location = new System.Drawing.Point(4, 22);
+            this.RoborioTab.Name = "RoborioTab";
+            this.RoborioTab.Padding = new System.Windows.Forms.Padding(3);
+            this.RoborioTab.Size = new System.Drawing.Size(626, 294);
+            this.RoborioTab.TabIndex = 0;
+            this.RoborioTab.Text = "Roborio";
+            this.RoborioTab.UseVisualStyleBackColor = true;
             // 
-            // leftSideBox
+            // TalonTab
             // 
-            this.leftSideBox.FormattingEnabled = true;
-            this.leftSideBox.Location = new System.Drawing.Point(5, 247);
-            this.leftSideBox.Name = "leftSideBox";
-            this.leftSideBox.Size = new System.Drawing.Size(238, 43);
-            this.leftSideBox.TabIndex = 21;
-            this.leftSideBox.Visible = false;
+            this.TalonTab.Controls.Add(this.talonOutputBox);
+            this.TalonTab.Controls.Add(this.talonStatusLEDs);
+            this.TalonTab.Controls.Add(this.talonTopLED);
+            this.TalonTab.Controls.Add(this.talonBotLED);
+            this.TalonTab.Controls.Add(this.Talonimage);
+            this.TalonTab.Location = new System.Drawing.Point(4, 22);
+            this.TalonTab.Name = "TalonTab";
+            this.TalonTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TalonTab.Size = new System.Drawing.Size(626, 294);
+            this.TalonTab.TabIndex = 1;
+            this.TalonTab.Text = "TalonSRX";
+            this.TalonTab.UseVisualStyleBackColor = true;
+            // 
+            // talonOutputBox
+            // 
+            this.talonOutputBox.FormattingEnabled = true;
+            this.talonOutputBox.Location = new System.Drawing.Point(150, 230);
+            this.talonOutputBox.Name = "talonOutputBox";
+            this.talonOutputBox.Size = new System.Drawing.Size(470, 56);
+            this.talonOutputBox.TabIndex = 5;
+            // 
+            // talonStatusLEDs
+            // 
+            this.talonStatusLEDs.BackColor = System.Drawing.SystemColors.Control;
+            this.talonStatusLEDs.Controls.Add(this.talonMode);
+            this.talonStatusLEDs.Controls.Add(this.talonModeSelector);
+            this.talonStatusLEDs.Controls.Add(this.talonBottomColor);
+            this.talonStatusLEDs.Controls.Add(this.talonBottomColorSelector);
+            this.talonStatusLEDs.Controls.Add(this.talonPatternSelector);
+            this.talonStatusLEDs.Controls.Add(this.talonTopColorSelector);
+            this.talonStatusLEDs.Controls.Add(this.talonPattern);
+            this.talonStatusLEDs.Controls.Add(this.talonTopColor);
+            this.talonStatusLEDs.Location = new System.Drawing.Point(4, 4);
+            this.talonStatusLEDs.Margin = new System.Windows.Forms.Padding(1);
+            this.talonStatusLEDs.Name = "talonStatusLEDs";
+            this.talonStatusLEDs.Padding = new System.Windows.Forms.Padding(1);
+            this.talonStatusLEDs.Size = new System.Drawing.Size(142, 284);
+            this.talonStatusLEDs.TabIndex = 4;
+            this.talonStatusLEDs.TabStop = false;
+            this.talonStatusLEDs.Text = "Status LEDs";
+            // 
+            // talonBottomColor
+            // 
+            this.talonBottomColor.Location = new System.Drawing.Point(70, 74);
+            this.talonBottomColor.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.talonBottomColor.Name = "talonBottomColor";
+            this.talonBottomColor.Size = new System.Drawing.Size(67, 15);
+            this.talonBottomColor.TabIndex = 5;
+            this.talonBottomColor.Text = "Bottom (M+)";
+            this.talonBottomColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // talonBottomColorSelector
+            // 
+            this.talonBottomColorSelector.FormattingEnabled = true;
+            this.talonBottomColorSelector.Items.AddRange(new object[] {
+            "Off",
+            "Green",
+            "Red",
+            "Orange"});
+            this.talonBottomColorSelector.Location = new System.Drawing.Point(76, 90);
+            this.talonBottomColorSelector.Margin = new System.Windows.Forms.Padding(1);
+            this.talonBottomColorSelector.Name = "talonBottomColorSelector";
+            this.talonBottomColorSelector.Size = new System.Drawing.Size(61, 56);
+            this.talonBottomColorSelector.TabIndex = 4;
+            // 
+            // talonPatternSelector
+            // 
+            this.talonPatternSelector.FormattingEnabled = true;
+            this.talonPatternSelector.Items.AddRange(new object[] {
+            "Off",
+            "Solid",
+            "Flashing",
+            "Blinking",
+            "Strobe Up (M-)",
+            "Strobe Down (M+)",
+            "Alternation (2 LED)",
+            "Alternation (1 LED)"});
+            this.talonPatternSelector.Location = new System.Drawing.Point(3, 166);
+            this.talonPatternSelector.Margin = new System.Windows.Forms.Padding(1);
+            this.talonPatternSelector.Name = "talonPatternSelector";
+            this.talonPatternSelector.Size = new System.Drawing.Size(134, 108);
+            this.talonPatternSelector.TabIndex = 3;
+            // 
+            // talonTopColorSelector
+            // 
+            this.talonTopColorSelector.FormattingEnabled = true;
+            this.talonTopColorSelector.Items.AddRange(new object[] {
+            "Off",
+            "Green",
+            "Red",
+            "Orange"});
+            this.talonTopColorSelector.Location = new System.Drawing.Point(3, 90);
+            this.talonTopColorSelector.Margin = new System.Windows.Forms.Padding(1);
+            this.talonTopColorSelector.Name = "talonTopColorSelector";
+            this.talonTopColorSelector.Size = new System.Drawing.Size(65, 56);
+            this.talonTopColorSelector.TabIndex = 2;
+            // 
+            // talonPattern
+            // 
+            this.talonPattern.Location = new System.Drawing.Point(0, 151);
+            this.talonPattern.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.talonPattern.Name = "talonPattern";
+            this.talonPattern.Size = new System.Drawing.Size(142, 14);
+            this.talonPattern.TabIndex = 1;
+            this.talonPattern.Text = "Pattern";
+            this.talonPattern.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // talonTopColor
+            // 
+            this.talonTopColor.Location = new System.Drawing.Point(0, 74);
+            this.talonTopColor.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.talonTopColor.Name = "talonTopColor";
+            this.talonTopColor.Size = new System.Drawing.Size(68, 15);
+            this.talonTopColor.TabIndex = 0;
+            this.talonTopColor.Text = "Top (M-)";
+            this.talonTopColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // talonTopLED
+            // 
+            this.talonTopLED.Location = new System.Drawing.Point(361, 84);
+            this.talonTopLED.Multiline = true;
+            this.talonTopLED.Name = "talonTopLED";
+            this.talonTopLED.Size = new System.Drawing.Size(17, 14);
+            this.talonTopLED.TabIndex = 3;
+            // 
+            // talonBotLED
+            // 
+            this.talonBotLED.Location = new System.Drawing.Point(361, 140);
+            this.talonBotLED.Multiline = true;
+            this.talonBotLED.Name = "talonBotLED";
+            this.talonBotLED.Size = new System.Drawing.Size(17, 14);
+            this.talonBotLED.TabIndex = 1;
+            // 
+            // Talonimage
+            // 
+            this.Talonimage.Image = ((System.Drawing.Image)(resources.GetObject("Talonimage.Image")));
+            this.Talonimage.Location = new System.Drawing.Point(150, 6);
+            this.Talonimage.Name = "Talonimage";
+            this.Talonimage.Size = new System.Drawing.Size(470, 215);
+            this.Talonimage.TabIndex = 0;
+            this.Talonimage.TabStop = false;
+            // 
+            // RadioTab
+            // 
+            this.RadioTab.Location = new System.Drawing.Point(4, 22);
+            this.RadioTab.Name = "RadioTab";
+            this.RadioTab.Size = new System.Drawing.Size(626, 294);
+            this.RadioTab.TabIndex = 2;
+            this.RadioTab.Text = "Radio";
+            this.RadioTab.UseVisualStyleBackColor = true;
+            // 
+            // PCMTab
+            // 
+            this.PCMTab.Location = new System.Drawing.Point(4, 22);
+            this.PCMTab.Name = "PCMTab";
+            this.PCMTab.Size = new System.Drawing.Size(626, 294);
+            this.PCMTab.TabIndex = 3;
+            this.PCMTab.Text = "PCM";
+            this.PCMTab.UseVisualStyleBackColor = true;
+            // 
+            // PDPTab
+            // 
+            this.PDPTab.Location = new System.Drawing.Point(4, 22);
+            this.PDPTab.Name = "PDPTab";
+            this.PDPTab.Size = new System.Drawing.Size(626, 294);
+            this.PDPTab.TabIndex = 4;
+            this.PDPTab.Text = "PDP";
+            this.PDPTab.UseVisualStyleBackColor = true;
+            // 
+            // VRMTab
+            // 
+            this.VRMTab.Location = new System.Drawing.Point(4, 22);
+            this.VRMTab.Name = "VRMTab";
+            this.VRMTab.Size = new System.Drawing.Size(626, 294);
+            this.VRMTab.TabIndex = 5;
+            this.VRMTab.Text = "VRM";
+            this.VRMTab.UseVisualStyleBackColor = true;
+            // 
+            // CreditsTab
+            // 
+            this.CreditsTab.Controls.Add(this.Creditsbox);
+            this.CreditsTab.Location = new System.Drawing.Point(4, 22);
+            this.CreditsTab.Name = "CreditsTab";
+            this.CreditsTab.Size = new System.Drawing.Size(626, 294);
+            this.CreditsTab.TabIndex = 6;
+            this.CreditsTab.Text = "Credits";
+            this.CreditsTab.UseVisualStyleBackColor = true;
+            // 
+            // talonModeSelector
+            // 
+            this.talonModeSelector.FormattingEnabled = true;
+            this.talonModeSelector.Items.AddRange(new object[] {
+            "Calibration",
+            "Normal Operation",
+            "B/C CAL"});
+            this.talonModeSelector.Location = new System.Drawing.Point(3, 30);
+            this.talonModeSelector.Margin = new System.Windows.Forms.Padding(1);
+            this.talonModeSelector.Name = "talonModeSelector";
+            this.talonModeSelector.Size = new System.Drawing.Size(134, 43);
+            this.talonModeSelector.TabIndex = 8;
+            // 
+            // talonMode
+            // 
+            this.talonMode.Location = new System.Drawing.Point(0, 14);
+            this.talonMode.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.talonMode.Name = "talonMode";
+            this.talonMode.Size = new System.Drawing.Size(142, 15);
+            this.talonMode.TabIndex = 8;
+            this.talonMode.Text = "Mode";
+            this.talonMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 293);
-            this.Controls.Add(this.leftSideBox);
-            this.Controls.Add(this.rightSideBox);
-            this.Controls.Add(this.closeCreditsButton);
-            this.Controls.Add(this.Creditsbox);
-            this.Controls.Add(this.PowerLED);
-            this.Controls.Add(this.StatusLED);
-            this.Controls.Add(this.RadioLED);
-            this.Controls.Add(this.CommLED);
-            this.Controls.Add(this.RSLLed);
-            this.Controls.Add(this.ModeLED);
-            this.Controls.Add(this.roborioImage);
-            this.Controls.Add(this.ResponseOutputBox);
-            this.Controls.Add(this.RSLLEDBox);
-            this.Controls.Add(this.CommLEDBox);
-            this.Controls.Add(this.ModeLEDBox);
-            this.Controls.Add(this.RadioLEDBox);
-            this.Controls.Add(this.StatusLEDBox);
-            this.Controls.Add(this.PowerLEDBox);
+            this.ClientSize = new System.Drawing.Size(657, 344);
+            this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Form1";
             this.Text = "RioLEDebug";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.PowerLEDBox.ResumeLayout(false);
-            this.StatusLEDBox.ResumeLayout(false);
-            this.RadioLEDBox.ResumeLayout(false);
-            this.CommLEDBox.ResumeLayout(false);
-            this.RSLLEDBox.ResumeLayout(false);
-            this.ModeLEDBox.ResumeLayout(false);
+            this.roboPowerLEDBox.ResumeLayout(false);
+            this.roboStatusLEDBox.ResumeLayout(false);
+            this.roboRadioLEDBox.ResumeLayout(false);
+            this.roboCommLEDBox.ResumeLayout(false);
+            this.roboRSLLEDBox.ResumeLayout(false);
+            this.roboModeLEDBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roborioImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ModeLED)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RSLLed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommLED)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RadioLED)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StatusLED)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PowerLED)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboModeLED)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboRSLLed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboCommLED)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboRadioLED)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboStatusLED)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roboPowerLED)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.RoborioTab.ResumeLayout(false);
+            this.TalonTab.ResumeLayout(false);
+            this.TalonTab.PerformLayout();
+            this.talonStatusLEDs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Talonimage)).EndInit();
+            this.CreditsTab.ResumeLayout(false);
+            this.CreditsTab.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.GroupBox PowerLEDBox;
-        private System.Windows.Forms.Label PowerLEDColor;
-        private System.Windows.Forms.Label PowerLEDPattern;
+        private System.Windows.Forms.GroupBox roboPowerLEDBox;
+        private System.Windows.Forms.Label roboPowerLEDColor;
+        private System.Windows.Forms.Label roboPowerLEDPattern;
         private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox PowerLEDPatternPicker;
+        private System.Windows.Forms.ListBox roboPowerLEDPatternPicker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
@@ -636,33 +871,51 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox ResponseOutputBox;
-        private System.Windows.Forms.GroupBox StatusLEDBox;
-        private System.Windows.Forms.GroupBox RadioLEDBox;
-        private System.Windows.Forms.GroupBox CommLEDBox;
-        private System.Windows.Forms.GroupBox ModeLEDBox;
-        private System.Windows.Forms.GroupBox RSLLEDBox;
-        private System.Windows.Forms.ListBox RadioLEDColorPicker;
-        private System.Windows.Forms.ListBox StatusLEDPatternPicker;
-        private System.Windows.Forms.ListBox StatusLEDColorPicker;
-        private System.Windows.Forms.ListBox RSLLEDPatternPicker;
-        private System.Windows.Forms.ListBox RSLLEDColorPicker;
-        private System.Windows.Forms.ListBox ModeLEDPatternPicker;
-        private System.Windows.Forms.ListBox ModeLEDColorPicker;
-        private System.Windows.Forms.ListBox CommLEDColorPicker;
-        private System.Windows.Forms.ListBox RadioLEDPatternPicker;
-        private System.Windows.Forms.ListBox PowerLEDColorPicker;
-        private System.Windows.Forms.ListBox CommLEDPatternPicker;
+        private System.Windows.Forms.ListBox roboResponseOutputBox;
+        private System.Windows.Forms.GroupBox roboStatusLEDBox;
+        private System.Windows.Forms.GroupBox roboRadioLEDBox;
+        private System.Windows.Forms.GroupBox roboCommLEDBox;
+        private System.Windows.Forms.GroupBox roboModeLEDBox;
+        private System.Windows.Forms.GroupBox roboRSLLEDBox;
+        private System.Windows.Forms.ListBox roboRadioLEDColorPicker;
+        private System.Windows.Forms.ListBox roboStatusLEDPatternPicker;
+        private System.Windows.Forms.ListBox roboStatusLEDColorPicker;
+        private System.Windows.Forms.ListBox roboRSLLEDPatternPicker;
+        private System.Windows.Forms.ListBox roboRSLLEDColorPicker;
+        private System.Windows.Forms.ListBox roboModeLEDPatternPicker;
+        private System.Windows.Forms.ListBox roboModeLEDColorPicker;
+        private System.Windows.Forms.ListBox roboCommLEDColorPicker;
+        private System.Windows.Forms.ListBox roboRadioLEDPatternPicker;
+        private System.Windows.Forms.ListBox roboPowerLEDColorPicker;
+        private System.Windows.Forms.ListBox roboCommLEDPatternPicker;
         private System.Windows.Forms.PictureBox roborioImage;
-        private System.Windows.Forms.PictureBox ModeLED;
-        private System.Windows.Forms.PictureBox RSLLed;
-        private System.Windows.Forms.PictureBox CommLED;
-        private System.Windows.Forms.PictureBox RadioLED;
-        private System.Windows.Forms.PictureBox StatusLED;
-        private System.Windows.Forms.PictureBox PowerLED;
+        private System.Windows.Forms.PictureBox roboModeLED;
+        private System.Windows.Forms.PictureBox roboRSLLed;
+        private System.Windows.Forms.PictureBox roboCommLED;
+        private System.Windows.Forms.PictureBox roboRadioLED;
+        private System.Windows.Forms.PictureBox roboStatusLED;
+        private System.Windows.Forms.PictureBox roboPowerLED;
         private System.Windows.Forms.TextBox Creditsbox;
-        private System.Windows.Forms.Button closeCreditsButton;
-        private System.Windows.Forms.ListBox rightSideBox;
-        private System.Windows.Forms.ListBox leftSideBox;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage RoborioTab;
+        private System.Windows.Forms.TabPage TalonTab;
+        private System.Windows.Forms.TabPage RadioTab;
+        private System.Windows.Forms.TabPage PCMTab;
+        private System.Windows.Forms.TabPage PDPTab;
+        private System.Windows.Forms.TabPage VRMTab;
+        private System.Windows.Forms.TabPage CreditsTab;
+        private System.Windows.Forms.PictureBox Talonimage;
+        private System.Windows.Forms.GroupBox talonStatusLEDs;
+        private System.Windows.Forms.Label talonBottomColor;
+        private System.Windows.Forms.ListBox talonBottomColorSelector;
+        private System.Windows.Forms.ListBox talonPatternSelector;
+        private System.Windows.Forms.ListBox talonTopColorSelector;
+        private System.Windows.Forms.Label talonPattern;
+        private System.Windows.Forms.Label talonTopColor;
+        private System.Windows.Forms.TextBox talonTopLED;
+        private System.Windows.Forms.TextBox talonBotLED;
+        private System.Windows.Forms.ListBox talonOutputBox;
+        private System.Windows.Forms.Label talonMode;
+        private System.Windows.Forms.ListBox talonModeSelector;
     }
 }
