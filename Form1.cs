@@ -71,6 +71,21 @@ namespace EzRioLED
             roboComm.Enabled = true;
             roboMode.Enabled = true;
             roboRSL.Enabled = true;
+
+            //setting good default values.
+
+            roboPowerLEDColorPicker.SetSelected(1, true);
+            roboPowerLEDPatternPicker.SetSelected(1, true);
+            roboStatusLEDColorPicker.SetSelected(0, true);
+            roboStatusLEDPatternPicker.SetSelected(0, true);
+            roboRadioLEDColorPicker.SetSelected(3, true);
+            roboRadioLEDPatternPicker.SetSelected(1, true);
+            roboCommLEDColorPicker.SetSelected(1, true);
+            roboCommLEDPatternPicker.SetSelected(1, true);
+            roboModeLEDColorPicker.SetSelected(3, true);
+            roboModeLEDPatternPicker.SetSelected(1, true);
+            roboRSLLEDColorPicker.SetSelected(1, true);
+            roboRSLLEDPatternPicker.SetSelected(2, true);
             #endregion
             #region Talon Init
             talonled.Interval = 400;
@@ -81,6 +96,12 @@ namespace EzRioLED
 
             talonled.Enabled = true;
             talonbox.Enabled = true;
+
+            //setting default selected values, the ones you want to see.
+            talonModeSelector.SetSelected(1, true);
+            talonTopColorSelector.SetSelected(3, true);
+            talonBottomColorSelector.SetSelected(0, true);
+            talonPatternSelector.SetSelected(6, true);
 
             #endregion
         }
@@ -522,11 +543,14 @@ namespace EzRioLED
             switch (talonState)
             {
                 default:
-                    talonled.Interval = 400;
-                    talonTopLED.BackColor = Color.White;
-                    talonBotLED.BackColor = Color.White;
+                    talonled.Interval = 100;
+                    if (talonTopLED.BackColor == Color.White) { talonTopLED.BackColor = Color.Red; talonBotLED.BackColor = Color.Red; }
+                    else if (talonTopLED.BackColor == Color.Red) { talonTopLED.BackColor = Color.Orange; talonBotLED.BackColor = Color.Orange; }
+                    else if (talonTopLED.BackColor == Color.Orange) { talonTopLED.BackColor = Color.Green; talonBotLED.BackColor = Color.Green; }
+                    else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; }
                     break;
                 //calibration blink codes
+
                 case 122:
                     if (talonTopLED.BackColor == Color.White) { talonTopLED.BackColor = Color.Green; talonBotLED.BackColor = Color.Red; talonled.Interval = 100; }
                     else { talonTopLED.BackColor = Color.White; talonBotLED.BackColor = Color.White; talonled.Interval = 400; }                   
@@ -614,6 +638,14 @@ namespace EzRioLED
                     talonled.Interval = 400;
                     talonTopLED.BackColor = Color.Red;
                     talonBotLED.BackColor = Color.Red;
+                    break;
+                case 1000:
+                    talonTopLED.BackColor = Color.White;
+                    talonBotLED.BackColor = Color.White;
+                    break;
+                case 2000:
+                    talonTopLED.BackColor = Color.White;
+                    talonBotLED.BackColor = Color.White;
                     break;
             }
         }
