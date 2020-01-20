@@ -1,0 +1,11 @@
+Important! (not ranked by importance)
+    -make certain options pre-selected when the program is launched.
+    -test if merging "blinking" and "flashing" is viable using a real talon srx.
+    -add tabs for Falcon 500, Spark Max, Talon SR, Talon FX, and more.
+    -come up with a visual cue that indicated invalid combo (use colors not in use otherwise and flash real fast?)
+    -add tooltips for better descriptions
+Not Important
+    -once one option is selected, highlight other possiblities.
+        -https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.listbox.drawitem?redirectedfrom=MSDN&view=netframework-4.8
+        -https://social.msdn.microsoft.com/Forums/sqlserver/en-US/9688dafa-4c9c-4153-ae97-79333d2c71cd/highlighting-specific-text-in-listbox?forum=vbgeneral
+        -this is real impractical, and would be a ridiculous amount of work that is only questionably possible
